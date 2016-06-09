@@ -1,27 +1,28 @@
 package com.next.micrm_module_3.presenter;
 
-import android.view.View;
-
 import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
-import com.next.micrm_module_3.model.ModelInteractor;
+import com.next.micrm_module_3.model.interfaces.ModelInteractor;
+import com.next.micrm_module_3.model.ModelInteractorImpl;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
+import com.next.micrm_module_3.presenter.interfaces.ModelPresenterInteractor;
 import com.next.micrm_module_3.view.MainViewInteractor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Wally1 on 08/06/2016.
  */
-public class ModelPresenter implements ModelPresenterInteractor {
+public class ModelPresenter implements ModelPresenterInteractor, ModelInteractor.onModelListener {
 
     private ModelInteractor nModel;
     private MainViewInteractor nMainView;
 
     @Override
-    public void onCreate(MainViewInteractor v, ModelInteractor m) {
-        this.nModel = m;
+    public void onCreate(MainViewInteractor v) {
+        this.nModel = ModelInteractorImpl.getInstances();
         this.nMainView = v;
     }
 
@@ -47,22 +48,22 @@ public class ModelPresenter implements ModelPresenterInteractor {
 
     @Override
     public List<People> getArrayPeoples() {
-        return null;
+        return (ArrayList) nModel.getPeoples();
     }
 
     @Override
     public List<Organization> getArrayOrganization() {
-        return null;
+        return (ArrayList) nModel.getOrganizations();
     }
 
     @Override
     public List<Commerce> getArrayCommerce() {
-        return null;
+        return (ArrayList) nModel.getCommerces();
     }
 
     @Override
     public List<ActivityAction> getActivitysAction() {
-        return null;
+        return nModel.getActivitys();
     }
 
     @Override
@@ -82,6 +83,31 @@ public class ModelPresenter implements ModelPresenterInteractor {
 
     @Override
     public void changeCommerce(int i) {
+
+    }
+
+    @Override
+    public void onAddActivity() {
+
+    }
+
+    @Override
+    public void onAddPeople() {
+
+    }
+
+    @Override
+    public void onAddOrganization() {
+
+    }
+
+    @Override
+    public void onCommerce() {
+
+    }
+
+    @Override
+    public void onDestroy() {
 
     }
 }

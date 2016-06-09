@@ -1,10 +1,7 @@
-package com.next.micrm_module_3.presenter;
-
-import android.view.View;
+package com.next.micrm_module_3.presenter.interfaces;
 
 import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
-import com.next.micrm_module_3.model.ModelInteractor;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.view.MainViewInteractor;
@@ -16,7 +13,7 @@ import java.util.List;
  */
 public interface ModelPresenterInteractor {
 
-    void onCreate(MainViewInteractor v, ModelInteractor m);
+    void onCreate(MainViewInteractor v);
     void addActivityAcction(ActivityAction a);
     void addPople(People p);
     void addCommerce(Commerce c);
