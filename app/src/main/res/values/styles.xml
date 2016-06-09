@@ -15,6 +15,5 @@
         <item name="android:layout_margin">@dimen/fab_margin</item>
         <item name="android:src">@mipmap/ic_add_circle_blue</item>
         <item name="android:tint">@color/colorPrimary</item>
-        <item name="app:backgroundTint">@color/colorPrimary</item>
     </style>
 </resources>

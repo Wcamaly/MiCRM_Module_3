@@ -1,4 +1,4 @@
-package com.next.micrm_module_3;
+package com.next.micrm_module_3.view;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
