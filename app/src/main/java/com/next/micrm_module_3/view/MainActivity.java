@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.next.micrm_module_3.R;
+import com.next.micrm_module_3.view.interfaces.MainViewInteractor;
 
 public class MainActivity extends AppCompatActivity implements MainViewInteractor {
 

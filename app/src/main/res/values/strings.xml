@@ -4,4 +4,8 @@
     <string name="name">Nombre</string>
     <string name="cancelar">Cancelar</string>
     <string name="aceptar">Aceptar</string>
+    <string name="error_Name">Error en el Nombre</string>
+    <string name="error_Tel">Error en el Télefono</string>
+    <string name="error_email">Error en el E-mail</string>
+
 </resources>
