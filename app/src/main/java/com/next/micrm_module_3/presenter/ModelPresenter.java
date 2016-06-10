@@ -2,112 +2,98 @@ package com.next.micrm_module_3.presenter;
 
 import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
-import com.next.micrm_module_3.model.interfaces.ModelInteractor;
-import com.next.micrm_module_3.model.ModelInteractorImpl;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
-import com.next.micrm_module_3.presenter.interfaces.ModelPresenterInteractor;
-import com.next.micrm_module_3.view.MainViewInteractor;
+import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Wally1 on 08/06/2016.
  */
-public class ModelPresenter implements ModelPresenterInteractor, ModelInteractor.onModelListener {
+class ModelPresenter implements ModelInteractor {
+    private static ModelInteractor model = null ;
+    private ModelPresenter() {}
 
-    private ModelInteractor nModel;
-    private MainViewInteractor nMainView;
-
-    @Override
-    public void onCreate(MainViewInteractor v) {
-        this.nModel = ModelInteractorImpl.getInstances();
-        this.nMainView = v;
+    public static ModelInteractor getInstances() {
+        if(model != null)
+            return model;
+        return new ModelPresenter();
     }
-
     @Override
-    public void addActivityAcction(ActivityAction a) {
-
+    public List<ActivityAction> getActivitys() {
+        return activitys;
     }
-
     @Override
-    public void addPople(People p) {
-
+    public List<People> getPeoples() {
+        return peoples;
     }
-
     @Override
-    public void addCommerce(Commerce c) {
-
+    public List<Commerce> getCommerces() {
+        return commerces;
     }
-
     @Override
-    public void addOrganization(Organization o) {
-
+    public List<Organization> getOrganizations() {
+        return organizations;
     }
-
     @Override
-    public List<People> getArrayPeoples() {
-        return (ArrayList) nModel.getPeoples();
+    public ActivityAction getActivityAction(int i) {
+        if(activitys != null)
+            return activitys.get(i);
+        return  null;
     }
-
     @Override
-    public List<Organization> getArrayOrganization() {
-        return (ArrayList) nModel.getOrganizations();
+    public void setActivity(ActivityAction a) {
+        if (a != null)
+            activitys.add(a);
     }
-
     @Override
-    public List<Commerce> getArrayCommerce() {
-        return (ArrayList) nModel.getCommerces();
+    public People getPeople(int i) {
+        if(peoples != null)
+            return peoples.get(i);
+        return null;
     }
-
     @Override
-    public List<ActivityAction> getActivitysAction() {
-        return nModel.getActivitys();
+    public void setPeople(People people) {
+        if(people != null)
+            peoples.add(people);
     }
-
     @Override
-    public void changePeople(int i) {
-
+    public Commerce getCommerce(int i) {
+        if(commerces != null)
+            return commerces.get(i);
+        return null;
     }
-
     @Override
-    public void changeOrganization(int i) {
-
+    public void setCommerce(Commerce commerce) {
+        if(commerce != null)
+            commerces.add(commerce);
     }
-
     @Override
-    public void changeActivitysAction(int i) {
-
+    public Organization getOrganization(int i) {
+        if(organizations != null)
+            return organizations.get(i);
+        return null;
     }
-
     @Override
-    public void changeCommerce(int i) {
-
+    public void setOrganization(Organization organization) {
+        if (organization != null)
+            organizations.add(organization);
     }
-
     @Override
-    public void onAddActivity() {
-
+    public void deleteOrganization(int i) {
+        organizations.remove(i);
     }
-
     @Override
-    public void onAddPeople() {
-
+    public void deleteCommerce(int i) {
+        commerces.remove(i);
     }
-
     @Override
-    public void onAddOrganization() {
-
+    public void deletePeople(int i) {
+        peoples.remove(i);
     }
-
     @Override
-    public void onCommerce() {
-
-    }
-
-    @Override
-    public void onDestroy() {
-
+    public void deleteActivity(int i) {
+        activitys.remove(i);
     }
 }

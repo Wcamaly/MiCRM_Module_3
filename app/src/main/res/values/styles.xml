@@ -12,9 +12,22 @@
     </style>
     <style name="ScreensConstructor">
         <item name="android:textColor">@color/textContet</item>
-        <item name="android:padding">15dp</item>
-
     </style>
+    <style name="layoutbackGrey">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="buttonTransparent">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">15dip</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:borderlessButtonStyle">@android:color/transparent</item>
+    </style>
+    <style name="editText" parent="ScreensConstructor">
+        <item name="android:padding">15dp</item>
+    </style>
+
     <style name="buttonFloating">
         <item name="android:layout_gravity">bottom|end</item>
         <item name="android:layout_margin">@dimen/fab_margin</item>

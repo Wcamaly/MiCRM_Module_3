@@ -15,13 +15,6 @@ import java.util.List;
  */
 public interface ModelInteractor {
 
-    interface  onModelListener{
-        void onAddActivity();
-        void onAddPeople();
-        void onAddOrganization();
-        void onCommerce();
-        void onDestroy();
-    }
     List<ActivityAction> activitys = new ArrayList<ActivityAction>();
     List<People> peoples = new ArrayList<People>();
     List<Commerce> commerces = new ArrayList<Commerce>();
@@ -38,4 +31,11 @@ public interface ModelInteractor {
     public void setCommerce(Commerce commerce);
     public Organization getOrganization(int i);
     public void setOrganization(Organization organization);
+    void deleteOrganization(int i);
+    void deleteCommerce(int i);
+    void deletePeople(int i);
+    void deleteActivity(int i);
+
+
+
 }

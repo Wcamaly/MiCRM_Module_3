@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.next.micrm_module_3.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainViewInteractor {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

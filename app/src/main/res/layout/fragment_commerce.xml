@@ -15,7 +15,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/namePeople"
+            android:id="@+id/nameCommerce"
             android:hint="@string/name"
             />
 
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/numberPeople"
+            android:id="@+id/numberCommerce"
             android:hint="@string/t_lefono" />
 
         <EditText
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/emailCommerce"
             android:hint="E-mail" />
 
     </LinearLayout>
@@ -52,14 +52,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancelar"
-            android:id="@+id/cancelPeople"
+            android:id="@+id/cancelCommerce"
             style="@style/buttonTransparent" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/aceptar"
-            android:id="@+id/okPeople"
+            android:id="@+id/okCommerce"
             style="@style/buttonTransparent"/>
     </LinearLayout>
 
