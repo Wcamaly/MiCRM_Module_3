@@ -3,7 +3,6 @@ package com.next.micrm_module_3.presenter;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationInteractor;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationPresenter;
-import com.next.micrm_module_3.view.interfaces.MainViewInteractor;
 import com.next.micrm_module_3.view.interfaces.OrganizationFragmentView;
 
 /**
@@ -25,31 +24,38 @@ public class OrganizationPresenterImpl implements OrganizationPresenter, Organiz
 
     @Override
     public Organization getChangeOrganization(int i) {
-        return null;
+        return mInteractor.getOrganiation(i);
     }
 
     @Override
     public void onDestroy() {
-
+        mView = null;
     }
 
     @Override
     public void onDelete(int i) {
-
+        mInteractor.deleteOrganization(i);
     }
 
     @Override
     public void onErrorName() {
-
+        if(mView !=null){
+            mView.setErrorName();
+        }
     }
 
     @Override
     public void onErrorTel() {
+        if(mView !=null){
+            mView.setErrorTel();
 
+        }
     }
 
     @Override
     public void onErrorAddres() {
-
+        if(mView !=null){
+            mView.setErrorAddres();
+        }
     }
 }

@@ -12,6 +12,6 @@ public interface OrganizationInteractor {
         void onErrorAddres();
     }
     void createOrganization(String name,String tel,String dir, onOrganization listener);
-    Organization getOrganiationPeople(int i);
+    Organization getOrganiation(int i);
     void deleteOrganization(int i);
 }

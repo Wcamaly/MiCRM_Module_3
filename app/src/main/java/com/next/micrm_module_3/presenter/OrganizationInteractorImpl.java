@@ -38,7 +38,7 @@ public class OrganizationInteractorImpl implements OrganizationInteractor {
     }
 
     @Override
-    public Organization getOrganiationPeople(int i) {
+    public Organization getOrganiation(int i) {
         return mModel.getOrganization(i);
     }
 
