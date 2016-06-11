@@ -3,7 +3,6 @@ package com.next.micrm_module_3.presenter;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.presenter.interfaces.PeopleInteractor;
 import com.next.micrm_module_3.presenter.interfaces.PeoplePresenter;
-import com.next.micrm_module_3.view.FragmentPeopleCreate;
 import com.next.micrm_module_3.view.interfaces.PeopleFrgmentView;
 
 /**
@@ -39,6 +38,11 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
     @Override
     public void onDestroy() {
         mView = null;
+    }
+
+    @Override
+    public void onDelete(int i) {
+        mInteractor.deletePeople(i);
     }
 
     @Override

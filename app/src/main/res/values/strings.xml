@@ -7,5 +7,7 @@
     <string name="error_Name">Error en el Nombre</string>
     <string name="error_Tel">Error en el Télefono</string>
     <string name="error_email">Error en el E-mail</string>
+    <string name="error_addres">Error en la Dirección</string>
+    <string name="addres">Dirección</string>
 
 </resources>

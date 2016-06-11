@@ -1,11 +1,11 @@
 package com.next.micrm_module_3.view.interfaces;
 
 /**
- * Created by wcamaly on 10/06/2016.
+ * Created by Wally1 on 11/06/2016.
  */
-public interface PeopleFrgmentView {
+public interface OrganizationFragmentView {
     void setErrorName();
-    void setErrorEmail();
+    void setErrorAddres();
     void setErrorTel();
     void actionCancel();
     void actionOk();

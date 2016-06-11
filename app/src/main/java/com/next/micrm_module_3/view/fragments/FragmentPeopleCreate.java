@@ -1,9 +1,11 @@
-package com.next.micrm_module_3.view;
+package com.next.micrm_module_3.view.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -35,10 +37,35 @@ public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView,
         rootView.findViewById(R.id.okPeople).setOnClickListener(this);
         mPresenter = new PeoplePresenterImpl(this);
         if(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE) != -1){
-            change(savedInstanceState.getInt(ConstantGeneral.ARG_ID_PEOPLE));
+            change(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE));
+            setHasOptionsMenu(true);
         }
         return rootView;
     }
+
+    @Override
+    public void onDestroy() {
+        mPresenter.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE) != -1)
+            inflater.inflate(R.menu.menu_fragments, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.delete:
+                actionDelete();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     public void setErrorName() {
         name.setError(getString(R.string.error_Name));
@@ -63,6 +90,12 @@ public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView,
                 email.getText().toString());
         getFragmentManager().popBackStack();
     }
+
+    @Override
+    public void actionDelete() {
+        mPresenter.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE));
+    }
+
     @Override
     public void change(int i) {
         People p = mPresenter.getChangePeople(i);

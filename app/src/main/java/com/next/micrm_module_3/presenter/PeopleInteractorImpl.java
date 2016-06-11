@@ -33,7 +33,7 @@ public class PeopleInteractorImpl implements PeopleInteractor {
             p.setEmail(email);
             p.setTel(tel);
             mModel.setPeople(p);
-            listener.onPeopleCreateSuccess();
+
         }
 
     }

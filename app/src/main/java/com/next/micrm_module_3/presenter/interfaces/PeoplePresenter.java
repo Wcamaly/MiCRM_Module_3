@@ -8,5 +8,6 @@ import com.next.micrm_module_3.model.People;
 public interface PeoplePresenter {
     void addPeople(String name, String tel,String email);
     People getChangePeople(int i);
-
+    void onDestroy();
+    void onDelete(int i);
 }
