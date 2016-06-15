@@ -1,20 +1,36 @@
 package com.next.micrm_module_3.model;
 
-public class Organization extends Entidad {
+import com.next.micrm_module_3.model.interfaces.Entidad;
+
+public class Organization implements Entidad {
 	private String address;
+	private String name;
+	private String tel;
+	private boolean is = true;
 	public Organization(){
-		super();
-		setAddress("");
+		name="";
+		tel="";
+		address="";
 	}
 	Organization(String n, String t, String a){
-		super(n,t);
-		address = a;
+		setName(n);
+		setTel(t);
+		setAddress(a);
 	}
+	public String getName(){return name;}
+	public String getTel(){return tel;}
+	public void setName(String n){name=n;is =false;}
+	public void setTel(String t){tel = t;is =false;}
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
-		isEmpty =false;
+		is =false;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return is;
 	}
 }

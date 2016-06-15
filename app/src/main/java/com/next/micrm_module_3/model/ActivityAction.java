@@ -1,5 +1,7 @@
 package com.next.micrm_module_3.model;
 
+import com.next.micrm_module_3.model.interfaces.Entidad;
+
 public class ActivityAction {
 
 	private String description;
@@ -7,9 +9,8 @@ public class ActivityAction {
 	private String date;
 	private String hour;
 	private String duration;
-	private People people;
-	private Organization org;
-	private Commerce commerce;
+	private Entidad entidad;
+
 
 	private boolean asign;
 	public ActivityAction(){
@@ -18,63 +19,20 @@ public class ActivityAction {
 		date ="";
 		hour ="";
 		duration="";
-		people = null;
-		org = null;
-		commerce = null;
+		entidad= null;
 		asign=false;
 	}
-	private String getNameCommerce() {	
-		if (commerce != null)
-			return  commerce.getTitle();
-		return null;	
-	}
-	private String getNameOrganization() {
-		if(org != null)
-			return org.getName();
-		return null;
-		
-	}
-	
-	private String getNamePeople() {
-		if(people != null)
-			return people.getName();
-		return null;
-	}
-	public void asignActivity (People p){
+	public void asignActivity (Entidad p){
 		if (!asign){
-			people = p;
-			System.out.println("Quedo asignada a"+p.getName()+".");
-		}else{
-			System.out.println("Ya esta asiganada esta Actividad.");
+			entidad = p;
+			asign=true;
 		}
 	}
-	public void asignActivity (Organization o){
-		if (!asign){
-			org = o;
-			System.out.println("Quedo asignada a"+o.getName()+".");
-		}else{
-			System.out.println("Ya esta asiganada esta Actividad.");
-		}
-	}
-	public void asignActivity (Commerce c){
-		if (!asign){
-			commerce = c;
-			System.out.println("Quedo asignado a "+c.getTitle()+".");
-		}else{
-			System.out.println("Ya esta asiganada esta Actividad.");
-		}
-	}
-	public String whoAsign(){
+	public Entidad whoAsign(){
 		if(asign){
-			if (!getNamePeople().isEmpty()){
-				return "Esta asignado a la persona: "+getNamePeople();
-			}else if(!getNameOrganization().isEmpty()){
-				return "Esta asignado a la organisaci�n: "+getNameOrganization();
-			}else {
-				return "Esta asignado al negocio: "+getNameCommerce();
-			}		
+			return entidad;
 		}	
-		return "Esta Actividad no esta asiganada";
+		return null;
 	}
 	public String getDuration() {
 		return duration;
@@ -108,12 +66,7 @@ public class ActivityAction {
 	}
 	public void removeAsign(){
 		asign = false;
-		if (people != null ){
-			people = null;
-		}if(org != null)
-			org = null;
-		if(commerce != null)
-			commerce=null;		
+		entidad = null;
 	}
 }
 	
