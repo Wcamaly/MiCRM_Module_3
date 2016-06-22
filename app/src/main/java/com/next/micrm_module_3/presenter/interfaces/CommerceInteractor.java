@@ -1,6 +1,8 @@
 package com.next.micrm_module_3.presenter.interfaces;
 
 
+import com.next.micrm_module_3.model.Organization;
+import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.model.interfaces.Entidad;
 
 /**
@@ -16,7 +18,7 @@ public interface CommerceInteractor
         void onErrorStatus();
         void onErrorDate();
     }
-    void createCommerce(String t, String d, String v, String s, String date, onCommerce listener, Entidad... entidads);
-    void getCommerceChange(int i);
+    void createCommerce(String t, String d, double v, String s, String date, onCommerce listener, People pe, Organization or);
+    Entidad getCommerceChange(int i);
     void deleteCommerce(int i);
 }

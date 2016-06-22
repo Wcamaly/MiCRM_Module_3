@@ -29,12 +29,24 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinnerPeople"
             android:hint="@string/peoples"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createPeople"
+            android:text="@string/createPeople"
+            android:visibility="gone"/>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerOrganization"
             android:hint= "@string/organizations" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createOrganization"
+            android:text="@string/createOrganization"
+            android:visibility="gone"/>
 
         <EditText
             android:layout_width="match_parent"
