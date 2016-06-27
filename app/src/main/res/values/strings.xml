@@ -20,5 +20,11 @@
     <string name="_10_20">10:20</string>
     <string name="createPeople">Crear Persona</string>
     <string name="createOrganization">Crear Organización</string>
+    <string name="error_title">Error en el Titulo</string>
+    <string name="error_description">Error en la descripción</string>
+    <string name="error_date">Error en la fecha</string>
+    <string name="error_status">Error en el status</string>
+    <string name="error_value">Error en el valor</string>
+    <string name="error_asign">Debe Seleccionar una persona o una Organización al menos</string>
 
 </resources>
