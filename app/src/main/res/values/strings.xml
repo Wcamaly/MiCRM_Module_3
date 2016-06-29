@@ -13,6 +13,7 @@
     <string name="description">Descripción</string>
     <string name="peoples">Personas</string>
     <string name="organizations">Organización</string>
+    <string name="commerce">Negocio</string>
     <string name="value">Valor</string>
     <string name="status">Estado</string>
     <string name="_10_1_2016">10/1/2016</string>
@@ -26,5 +27,8 @@
     <string name="error_status">Error en el status</string>
     <string name="error_value">Error en el valor</string>
     <string name="error_asign">Debe Seleccionar una persona o una Organización al menos</string>
+    <string name="type">Tipo</string>
+    <string name="Error_type">Error en el Tipo</string>
+    <string name="error_hour">Error en la hora</string>
 
 </resources>

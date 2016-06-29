@@ -21,7 +21,7 @@ public interface CommerceFragmentView {
     void setErrorValue();
     void setErrorAsign();
     void evalAsign();
-    void loadAsign(Spinner v, List<?> list);
+    void loadAsign(Spinner v, List<?> list, int as);
     void actionCreatePeople();
     void actionCreateOrganization();
     void actionCancel();

@@ -130,13 +130,13 @@ public class FragmentCommerceCreate extends Fragment implements CommerceFragment
     @Override
     public void evalAsign() {
        if(pCommerce.getListPoples() != null)
-           loadAsign(lPeoples,pCommerce.getListPoples());
+           loadAsign(lPeoples,pCommerce.getListPoples(),1);
        else{
            lPeoples.setVisibility(View.GONE);
            cPeople.setVisibility(View.VISIBLE);
        }
         if(pCommerce.getListOrganization() != null)
-            loadAsign(lOrganization,pCommerce.getListOrganization());
+            loadAsign(lOrganization,pCommerce.getListOrganization(),2);
         else{
             lOrganization.setVisibility(View.GONE);
             cOrganization.setVisibility(View.VISIBLE);
@@ -144,10 +144,13 @@ public class FragmentCommerceCreate extends Fragment implements CommerceFragment
     }
 
     @Override
-    public void loadAsign(Spinner v, List<?> list) {
+    public void loadAsign(Spinner v, List<?> list, int as) {
         List<String> l = new ArrayList<String>();
         for(int i=0;i< list.size();i++){
-            l.add(list.get(i).getClass().getName());
+            if(as == 1)
+                l.add(((People) list.get(i)).getName());
+            else
+                l.add(((Organization) list.get(i)).getName());
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,l);
         v.setAdapter(adapter);

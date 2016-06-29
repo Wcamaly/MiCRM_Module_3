@@ -15,8 +15,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/titleActivity"
-            android:hint="@string/title"
+            android:id="@+id/typeActivity"
+            android:hint="@string/type"
             />
 
         <EditText
@@ -34,7 +34,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner"
+            android:id="@+id/selectedType"
             android:visibility="gone"
             />
         <EditText
