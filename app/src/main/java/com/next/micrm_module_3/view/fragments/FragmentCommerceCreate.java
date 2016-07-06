@@ -188,6 +188,7 @@ public class FragmentCommerceCreate extends Fragment implements CommerceFragment
     @Override
     public void actionDelete() {
         pCommerce.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_COMMERCE));
+        getFragmentManager().popBackStack();
     }
 
     @Override

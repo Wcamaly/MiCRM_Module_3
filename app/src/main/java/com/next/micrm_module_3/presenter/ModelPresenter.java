@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Wally1 on 08/06/2016.
  */
-class ModelPresenter implements ModelInteractor {
+public class ModelPresenter implements ModelInteractor {
     private static ModelInteractor model = null ;
     private ModelPresenter() {}
 

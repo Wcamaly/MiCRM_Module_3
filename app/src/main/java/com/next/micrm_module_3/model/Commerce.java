@@ -1,9 +1,11 @@
 package com.next.micrm_module_3.model;
 
+import com.next.micrm_module_3.model.interfaces.Entidad;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Commerce {
+public class Commerce implements Entidad {
 	private String description;
 	private String title;
 	private String dateFinish;
@@ -11,8 +13,7 @@ public class Commerce {
 	private double value;
 	private List<Organization> org = new ArrayList<Organization>();
 	private List<People> peoples = new ArrayList<People>();
-
-	boolean isEmpty =true;
+	private boolean isEmpty =true;
 	public Commerce(){
 		description ="";
 		title="";
@@ -107,5 +108,10 @@ public class Commerce {
 	public void removePeopleOrganization(Organization o){
 		if(o != null)
 			org.remove(o);
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return isEmpty;
 	}
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
+import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
@@ -38,6 +39,8 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
     private Button ok,cancel;
     private TextView tType,tDescription,tDate,tHour;
     private Spinner sAsignTo,sAsigning;
+    private int asign = -1;
+    private Entidad enti = null;
 
 
     @Override
@@ -137,17 +140,25 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
 
     @Override
     public void actionCancel() {
-
+        getFragmentManager().popBackStack();
     }
 
     @Override
     public void actionOk() {
+        pActivity.addActivity(tType.getText().toString(),
+                tDescription.getText().toString(),
+                tHour.getText().toString(),
+                tDate.getText().toString(),
+                enti);
+        getFragmentManager().popBackStack();
+
 
     }
 
     @Override
     public void actionDelete() {
-
+        pActivity.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_ACTIVITY));
+        getFragmentManager().popBackStack();
     }
 
     @Override
@@ -157,12 +168,34 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.okAcitvity:
+                actionOk();
+                break;
+            case R.id.cancelactivity:
+                actionCancel();
+                break;
+        }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+       switch (view.getId()){
+           case R.id.asignTo:
+               asign = position+1;
+               break;
+           case R.id.selectedType:
+               if (asign == 1){
+                   enti = pActivity.getListPoples().get(position);
+               }
+               if(asign == 2){
+                  enti = pActivity.getListOrganization().get(position);
+               }
+               if(asign == 3){
+                   enti = pActivity.getListCommerce().get(position);
+               }
+               break;
+       }
     }
 
     @Override

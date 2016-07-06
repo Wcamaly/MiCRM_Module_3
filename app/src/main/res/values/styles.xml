@@ -1,13 +1,13 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="LeftMenu" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="LeftMenu" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
     <style name="ScreensConstructor">
@@ -22,7 +22,7 @@
         <item name="android:textSize">15dip</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:padding">10dip</item>
-        <item name="android:borderlessButtonStyle">@android:color/transparent</item>
+
     </style>
     <style name="editText" parent="ScreensConstructor">
         <item name="android:padding">15dp</item>
@@ -33,5 +33,12 @@
         <item name="android:layout_margin">@dimen/fab_margin</item>
         <item name="android:src">@mipmap/ic_add_circle_blue</item>
         <item name="android:tint">@color/colorPrimary</item>
+    </style>
+
+    <style name="adapterListText">
+        <item name="android:textSize">16dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingLeft">2dip</item>
     </style>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_seccion_1"
+        android:icon="@mipmap/ic_label_white_24dp"
+        android:title="@string/home"
+        ></item>
+    <item
+        android:id="@+id/menu_seccion_2"
+        android:icon="@mipmap/ic_label_white_24dp"
+        android:title="@string/peoples"
+        ></item>
+    <item
+        android:id="@+id/menu_seccion_3"
+        android:icon="@mipmap/ic_label_white_24dp"
+        android:title="@string/organizations"
+        ></item>
+    <item
+        android:id="@+id/menu_seccion_4"
+        android:icon="@mipmap/ic_label_white_24dp"
+        android:title="@string/commerce"
+        ></item>
+    <item
+        android:id="@+id/menu_seccion_5"
+        android:icon="@mipmap/ic_label_white_24dp"
+        android:title="@string/activity"
+        ></item>
+</menu>

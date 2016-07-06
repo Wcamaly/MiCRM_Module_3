@@ -2,7 +2,7 @@ package com.next.micrm_module_3.model;
 
 import com.next.micrm_module_3.model.interfaces.Entidad;
 
-public class ActivityAction {
+public class ActivityAction implements Entidad {
 
 	private String description;
 	private String type;
@@ -10,7 +10,7 @@ public class ActivityAction {
 	private String hour;
 	private String duration;
 	private Entidad entidad;
-
+	private boolean empty = true;
 
 	private boolean asign;
 	public ActivityAction(){
@@ -24,6 +24,7 @@ public class ActivityAction {
 	}
 	public void asignActivity (Entidad p){
 		if (!asign){
+			empty = false;
 			entidad = p;
 			asign=true;
 		}
@@ -38,35 +39,46 @@ public class ActivityAction {
 		return duration;
 	}
 	public void setDuration(String duration) {
+		empty = false;
 		this.duration = duration;
 	}
 	public String getHour() {
 		return hour;
 	}
 	public void setHour(String hour) {
+		empty = false;
 		this.hour = hour;
 	}
 	public String getDate() {
 		return date;
 	}
 	public void setDate(String date) {
+		empty = false;
 		this.date = date;
 	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
+		empty = false;
 		this.type = type;
 	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
+
+		empty = false;
 		this.description = description;
 	}
 	public void removeAsign(){
 		asign = false;
 		entidad = null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return empty;
 	}
 }
 	

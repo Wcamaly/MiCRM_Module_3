@@ -14,6 +14,7 @@
     <string name="peoples">Personas</string>
     <string name="organizations">Organización</string>
     <string name="commerce">Negocio</string>
+    <string name="activity">Actividades</string>
     <string name="value">Valor</string>
     <string name="status">Estado</string>
     <string name="_10_1_2016">10/1/2016</string>
@@ -30,5 +31,6 @@
     <string name="type">Tipo</string>
     <string name="Error_type">Error en el Tipo</string>
     <string name="error_hour">Error en la hora</string>
+    <string name="home">Home</string>
 
 </resources>
