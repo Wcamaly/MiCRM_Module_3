@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wcamaly on 22/06/2016.
+ * This class is the view section activity
  */
 public class FragmentActivityAction extends Fragment implements ActivityFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
     private ActivityPresenter pActivity;
@@ -46,23 +46,27 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_activity_action,container,false);
+        initializeView(rootView);
+        setOnListener();
+        return rootView;
+    }
+    private void initializeView(View rootView){
         pActivity = new ActivityPresenterImpl(this);
         tType  = (TextView) rootView.findViewById(R.id.typeActivity);
         tDescription = (TextView) rootView.findViewById(R.id.descriptionActivity);
         tDate = (TextView) rootView.findViewById(R.id.dateActivity);
         tHour = (TextView) rootView.findViewById(R.id.hourActivity);
         ok = (Button) rootView.findViewById(R.id.okAcitvity);
-        ok.setOnClickListener(this);
         cancel = (Button) rootView.findViewById(R.id.cancelactivity);
-        cancel.setOnClickListener(this);
         sAsignTo = (Spinner) rootView.findViewById(R.id.asignTo);
+        sAsigning = (Spinner) rootView.findViewById(R.id.selectedType);
+    }
+    private void setOnListener(){
+        ok.setOnClickListener(this);
+        cancel.setOnClickListener(this);
         sAsignTo.setOnItemSelectedListener(this);
         setAdapterAsigTo();
-        sAsigning = (Spinner) rootView.findViewById(R.id.selectedType);
         sAsigning.setOnItemSelectedListener(this);
-
-
-        return rootView;
     }
 
     private void setAdapterAsigTo() {

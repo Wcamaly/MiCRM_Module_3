@@ -1,11 +1,14 @@
 package com.next.micrm_module_3.presenter;
 
+import android.util.Log;
+
 import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,12 +16,15 @@ import java.util.List;
  */
 public class ModelPresenter implements ModelInteractor {
     private static ModelInteractor model = null ;
+    private List<ActivityAction> activitys = new ArrayList<ActivityAction>();
+    private List<People> peoples = new ArrayList<People>();
+    private List<Commerce> commerces = new ArrayList<Commerce>();
+    private List<Organization> organizations = new ArrayList<Organization>();
+    private static ModelInteractor INSTANCE = new ModelPresenter();
     private ModelPresenter() {}
 
     public static ModelInteractor getInstances() {
-        if(model != null)
-            return model;
-        return new ModelPresenter();
+        return INSTANCE;
     }
     @Override
     public List<ActivityAction> getActivitys() {
@@ -54,9 +60,10 @@ public class ModelPresenter implements ModelInteractor {
         return null;
     }
     @Override
-    public void setPeople(People people) {
-        if(people != null)
-            peoples.add(people);
+    public void setPeople(People p) {
+        if(p != null)
+            if (peoples.add(p))
+                Log.d("ejemplo---","Fue add");
     }
     @Override
     public Commerce getCommerce(int i) {

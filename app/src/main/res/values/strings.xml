@@ -32,5 +32,6 @@
     <string name="Error_type">Error en el Tipo</string>
     <string name="error_hour">Error en la hora</string>
     <string name="home">Home</string>
+    <string name="action_search">Search</string>
 
 </resources>

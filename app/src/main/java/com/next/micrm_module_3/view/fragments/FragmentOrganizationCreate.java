@@ -36,7 +36,7 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
         mPresenter = new OrganizationPresenterImpl(this);
-        if(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
+        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
             change(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION));
             setHasOptionsMenu(true);
         }

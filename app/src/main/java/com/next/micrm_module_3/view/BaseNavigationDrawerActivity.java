@@ -2,12 +2,12 @@ package com.next.micrm_module_3.view;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -15,8 +15,10 @@ import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
 import com.next.micrm_module_3.view.fragments.FragmentHome;
 import com.next.micrm_module_3.view.fragments.FragmentListEntidades;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+/**
+ * This class is the main entry activity of the applicatio and it contains menus for the rest of the app. Also, action bar initialization.
+ */
+public class BaseNavigationDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout mDrawerLayout;
     Toolbar mToolbar;
     NavigationView mNavigationView;
@@ -25,16 +27,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initializeViews();
+        initializeActionBar();
+
+    }
+
+    private void initializeViews() {
         mDrawerLayout = (DrawerLayout)findViewById(R.id.page);
         mNavigationView = (NavigationView)findViewById(R.id.navigation_drawer);
         mNavigationView.setNavigationItemSelectedListener(this);
         mToolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
+    }
 
+    private void initializeActionBar() {
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_view_headline_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
+
     @TargetApi(Build.VERSION_CODES.DONUT)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

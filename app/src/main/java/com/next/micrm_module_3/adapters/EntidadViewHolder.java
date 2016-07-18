@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.next.micrm_module_3.R;
+import com.next.micrm_module_3.model.ModelEntidadList;
 
 /**
  * Created by wcamaly on 06/07/2016.
@@ -15,7 +16,7 @@ public class EntidadViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.title = (TextView) itemView.findViewById(R.id.title);
     }
-    public void bind(String t){
-       title.setText(t);
+    public void bind(ModelEntidadList model){
+       title.setText(model.getText());
     }
 }

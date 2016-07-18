@@ -15,10 +15,7 @@ import java.util.List;
  */
 public interface ModelInteractor {
 
-    List<ActivityAction> activitys = new ArrayList<ActivityAction>();
-    List<People> peoples = new ArrayList<People>();
-    List<Commerce> commerces = new ArrayList<Commerce>();
-    List<Organization> organizations = new ArrayList<Organization>();
+
     List<ActivityAction> getActivitys();
     List<People> getPeoples();
     List<Commerce> getCommerces();

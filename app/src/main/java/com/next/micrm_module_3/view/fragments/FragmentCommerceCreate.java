@@ -64,7 +64,7 @@ public class FragmentCommerceCreate extends Fragment implements CommerceFragment
         cancel= (Button) rootView.findViewById(R.id.cancelCommerce);
         cancel.setOnClickListener(this);
         evalAsign();
-        if(getArguments().getInt(ConstantGeneral.ARG_ID_COMMERCE) != -1){
+        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_COMMERCE) != -1){
             change(getArguments().getInt(ConstantGeneral.ARG_ID_COMMERCE));
             setHasOptionsMenu(true);
         }
