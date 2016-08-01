@@ -26,6 +26,5 @@ public interface CommerceFragmentView {
     void actionCreateOrganization();
     void actionCancel();
     void actionOk();
-    void actionDelete();
     void change(int i);
 }

@@ -1,7 +1,6 @@
 package com.next.micrm_module_3.view.fragments;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,7 +27,6 @@ import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.ModelEntidadList;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
-import com.next.micrm_module_3.model.interfaces.Entidad;
 import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ListEntidades;
@@ -37,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wcamaly on 06/07/2016.
+ * This class shows all the list of people , commerces, organizations , activity, whichever is the parameter.
  */
 public class FragmentListEntidades extends Fragment implements ListEntidades, View.OnClickListener, OnQueryTextListener{
     RecyclerView adapter;
@@ -127,7 +125,7 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
         switch (getArguments().getInt(ConstantGeneral.SELECTED_ITEM_MENU)){
             case ConstantGeneral.ITEM_MENU_ACTIVITY:
                 getArguments().putInt(ConstantGeneral.ARG_ID_ACTIVITY, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentActivityAction()).commit();
+                ft.replace(R.id.fragment_section,new FragmentActivityActionCreate()).commit();
                 break;
             case ConstantGeneral.ITEM_MENU_COMMERCE:
                 getArguments().putInt(ConstantGeneral.ARG_ID_COMMERCE, itemPosition);
@@ -154,7 +152,7 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
         FragmentTransaction ft=  getActivity().getSupportFragmentManager().beginTransaction();
         switch (getArguments().getInt(ConstantGeneral.SELECTED_ITEM_MENU)){
             case ConstantGeneral.ITEM_MENU_ACTIVITY:
-                ft.replace(R.id.fragment_section,new FragmentActivityAction()).commit();
+                ft.replace(R.id.fragment_section,new FragmentActivityActionCreate()).commit();
                 break;
             case ConstantGeneral.ITEM_MENU_COMMERCE:
                 ft.replace(R.id.fragment_section,new FragmentCommerceCreate()).commit();

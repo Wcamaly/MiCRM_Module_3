@@ -18,6 +18,7 @@ public interface ActivityPresenter {
     List<Organization> getListOrganization();
     List<Commerce> getListCommerce();
     void onDestroy();
-    void onDelete(int i);
+    void delete(int i);
+
 
 }

@@ -9,6 +9,5 @@ public interface OrganizationFragmentView {
     void setErrorTel();
     void actionCancel();
     void actionOk();
-    void actionDelete();
     void change(int i);
 }

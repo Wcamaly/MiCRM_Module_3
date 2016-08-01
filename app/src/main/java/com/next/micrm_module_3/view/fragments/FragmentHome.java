@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.next.micrm_module_3.R;
 
 /**
- * Created by wcamaly on 06/07/2016.
+ * This class is the Home, does nothing more than show "Home" on the screen
  */
 public class FragmentHome extends Fragment {
     @Nullable

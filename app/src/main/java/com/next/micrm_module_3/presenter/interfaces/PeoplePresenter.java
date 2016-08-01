@@ -9,5 +9,5 @@ public interface PeoplePresenter {
     void addPeople(String name, String tel,String email);
     People getChangePeople(int i);
     void onDestroy();
-    void onDelete(int i);
+    void delete(int i);
 }

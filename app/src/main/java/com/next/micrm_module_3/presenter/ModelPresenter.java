@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Wally1 on 08/06/2016.
+ * This class is the Presenter to Model
  */
 public class ModelPresenter implements ModelInteractor {
     private static ModelInteractor model = null ;

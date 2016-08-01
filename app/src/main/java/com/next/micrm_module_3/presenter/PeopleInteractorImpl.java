@@ -7,7 +7,7 @@ import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.PeopleInteractor;
 
 /**
- * Created by Wally1 on 10/06/2016.
+ * This class is el interactor to PeoplePresenter to Model
  */
 public class PeopleInteractorImpl implements PeopleInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
@@ -43,10 +43,9 @@ public class PeopleInteractorImpl implements PeopleInteractor {
         return mModel.getPeople(i);
     }
 
-
     @Override
-    public void deletePeople(int i) {
-        mModel.deletePeople(i);
+    public void deletePoeple(int i) {
+        mModel.getPeoples().remove(i);
     }
 
 

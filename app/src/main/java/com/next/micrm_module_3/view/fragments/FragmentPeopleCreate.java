@@ -20,7 +20,7 @@ import com.next.micrm_module_3.presenter.interfaces.PeoplePresenter;
 import com.next.micrm_module_3.view.interfaces.PeopleFrgmentView;
 
 /**
- * Created by wcamaly on 10/06/2016.
+ * This class is the create new people
  */
 public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView, View.OnClickListener {
     private EditText name, tel, email;
@@ -30,19 +30,11 @@ public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView,
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_people,container,false);
-        name = (EditText) rootView.findViewById(R.id.namePeople);
-        tel  = (EditText) rootView.findViewById(R.id.numberPeople);
-        email = (EditText) rootView.findViewById(R.id.emailPeople);
-        cancel = (Button) rootView.findViewById(R.id.cancelPeople);
-        cancel.setOnClickListener(this);
-        ok = (Button) rootView.findViewById(R.id.okPeople);
-        ok.setOnClickListener(this);
-        mPresenter = new PeoplePresenterImpl(this);
-        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE) != -1){
-            change(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE));
-            setHasOptionsMenu(true);
-        }
+        View rootView = inflater.inflate(R.layout.fragment_people_create,container,false);
+
+        initializeView(rootView);
+        setOnListener();
+
         return rootView;
     }
 
@@ -84,23 +76,19 @@ public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView,
     }
     @Override
     public void actionCancel() {
-        getFragmentManager().popBackStack();
+        backFragment();
     }
     @Override
     public void actionOk() {
         mPresenter.addPeople(name.getText().toString(),
                 tel.getText().toString(),
                 email.getText().toString());
-        FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
-        Fragment fragment = new FragmentListEntidades();
-        Bundle arg = new Bundle();
-        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_PEOPLE);
-        fragment.setArguments(arg);
-        ft.replace(R.id.fragment_section, fragment)
-                .commit();
+        backFragment();
 
 
     }
+
+
 
     @Override
     public void actionDelete() {
@@ -124,5 +112,33 @@ public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView,
                 actionCancel();
                 break;
         }
+    }
+
+    private void initializeView(View rootView) {
+        name = (EditText) rootView.findViewById(R.id.namePeople);
+        tel  = (EditText) rootView.findViewById(R.id.numberPeople);
+        email = (EditText) rootView.findViewById(R.id.emailPeople);
+        cancel = (Button) rootView.findViewById(R.id.cancelPeople);
+        ok = (Button) rootView.findViewById(R.id.okPeople);
+        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE) != -1){
+            change(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE));
+            setHasOptionsMenu(true);
+        }
+    }
+
+    private void backFragment() {
+        FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new FragmentListEntidades();
+        Bundle arg = new Bundle();
+        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_PEOPLE);
+        fragment.setArguments(arg);
+        ft.replace(R.id.fragment_section, fragment)
+                .commit();
+    }
+
+    private void setOnListener() {
+        cancel.setOnClickListener(this);
+        ok.setOnClickListener(this);
+        mPresenter = new PeoplePresenterImpl(this);
     }
 }

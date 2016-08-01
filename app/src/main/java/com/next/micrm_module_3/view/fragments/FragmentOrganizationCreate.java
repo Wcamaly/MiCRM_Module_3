@@ -3,6 +3,7 @@ package com.next.micrm_module_3.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
@@ -20,27 +23,18 @@ import com.next.micrm_module_3.presenter.interfaces.OrganizationPresenter;
 import com.next.micrm_module_3.view.interfaces.OrganizationFragmentView;
 
 /**
- * Created by Wally1 on 11/06/2016.
+ * This class is the create new Organization
  */
 public class FragmentOrganizationCreate extends Fragment implements OrganizationFragmentView, View.OnClickListener {
-    EditText name,tel,addres;
-    OrganizationPresenter mPresenter;
+    private EditText name,tel,addres;
+    private OrganizationPresenter mPresenter;
+    private Button cancel,ok;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_organiztion,container,false);
-        name = (EditText) rootView.findViewById(R.id.nameOrganization);
-        tel = (EditText) rootView.findViewById(R.id.numberOrganization);
-        addres = (EditText) rootView.findViewById(R.id.addresOrganization);
-        Button ok = (Button) rootView.findViewById(R.id.okOrganization);
-        Button cancel = (Button) rootView.findViewById(R.id.cancelOrganization);
-        ok.setOnClickListener(this);
-        cancel.setOnClickListener(this);
-        mPresenter = new OrganizationPresenterImpl(this);
-        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
-            change(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION));
-            setHasOptionsMenu(true);
-        }
-        return rootView;
+        View rootView = inflater.inflate(R.layout.fragment_organiztion_create,container,false);
+        initializeView(rootView);
+        setOnListener();
+        return  rootView;
     }
     @Override
     public void onDestroy(){
@@ -109,7 +103,6 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
         addres.setText(o.getAddress());
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -121,5 +114,36 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
                 break;
         }
 
+    }
+
+    private void initializeView(View rootView) {
+        name = (EditText) rootView.findViewById(R.id.nameOrganization);
+        tel = (EditText) rootView.findViewById(R.id.numberOrganization);
+        addres = (EditText) rootView.findViewById(R.id.addresOrganization);
+        ok = (Button) rootView.findViewById(R.id.okOrganization);
+        cancel = (Button) rootView.findViewById(R.id.cancelOrganization);
+
+        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
+            change(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION));
+            setHasOptionsMenu(true);
+        }
+
+
+    }
+
+    private void backFragment() {
+        FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new FragmentListEntidades();
+        Bundle arg = new Bundle();
+        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_ORGANIZATION);
+        fragment.setArguments(arg);
+        ft.replace(R.id.fragment_section, fragment)
+                .commit();
+    }
+
+    private void setOnListener() {
+        ok.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        mPresenter = new OrganizationPresenterImpl(this);
     }
 }

@@ -11,7 +11,7 @@ import com.next.micrm_module_3.view.interfaces.CommerceFragmentView;
 import java.util.List;
 
 /**
- * Created by wcamaly on 21/06/2016.
+ * This class is the mind that is responsible for managing the view of creating Commerce
  */
 public class CommercePresenterImpl implements CommercePresenter, CommerceInteractor.onCommerce {
    CommerceFragmentView view;
@@ -50,9 +50,10 @@ public class CommercePresenterImpl implements CommercePresenter, CommerceInterac
     }
 
     @Override
-    public void onDelete(int i) {
-       ModelPresenter.getInstances().getOrganizations().remove(i);
+    public void delete(int i) {
+        cIteractor.delteCommerce(i);
     }
+
 
     @Override
     public void onErrorTitle() {

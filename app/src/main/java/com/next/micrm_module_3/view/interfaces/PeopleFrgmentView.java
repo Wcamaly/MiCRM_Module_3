@@ -9,6 +9,5 @@ public interface PeopleFrgmentView {
     void setErrorTel();
     void actionCancel();
     void actionOk();
-    void actionDelete();
     void change(int i);
 }

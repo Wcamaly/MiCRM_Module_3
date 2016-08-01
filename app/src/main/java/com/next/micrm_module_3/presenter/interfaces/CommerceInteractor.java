@@ -20,5 +20,5 @@ public interface CommerceInteractor
     }
     void createCommerce(String t, String d, double v, String s, String date, onCommerce listener, People pe, Organization or);
     Entidad getCommerceChange(int i);
-    void deleteCommerce(int i);
+    void delteCommerce(int i);
 }

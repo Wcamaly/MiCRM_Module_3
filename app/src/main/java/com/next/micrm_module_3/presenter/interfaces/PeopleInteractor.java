@@ -14,6 +14,6 @@ public interface PeopleInteractor {
     }
     void createPeople(String name,String email,String tel, final onPeople listener);
     People getChangePeople(int i);
-    void deletePeople(int i);
+    void deletePoeple(int i);
 
 }

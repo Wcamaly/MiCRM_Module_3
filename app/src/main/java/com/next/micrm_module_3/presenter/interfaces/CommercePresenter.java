@@ -15,6 +15,6 @@ public interface CommercePresenter {
     List<People> getListPoples();
     List<Organization> getListOrganization();
     void onDestroy();
-    void onDelete(int i);
+    void delete(int i);
 
 }

@@ -8,7 +8,7 @@ import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationInteractor;
 
 /**
- * Created by Wally1 on 11/06/2016.
+ * This class is el interactor to OrganizartioPresenter to Model
  */
 public class OrganizationInteractorImpl implements OrganizationInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
@@ -43,7 +43,9 @@ public class OrganizationInteractorImpl implements OrganizationInteractor {
     }
 
     @Override
-    public void deleteOrganization(int i) {
-        mModel.deleteOrganization(i);
+    public void delteOrganization(int i) {
+        mModel.getOrganizations().remove(i);
     }
+
+
 }

@@ -6,7 +6,7 @@ import android.widget.Spinner;
 import java.util.List;
 
 /**
- * Created by wcamaly on 29/06/2016.
+ * Interface to Create Activity
  */
 public interface ActivityFragmentView {
     void setErrorType();
@@ -17,6 +17,5 @@ public interface ActivityFragmentView {
     void selectedAsign(List<?> list, int ty);
     void actionCancel();
     void actionOk();
-    void actionDelete();
     void change(int i);
 }

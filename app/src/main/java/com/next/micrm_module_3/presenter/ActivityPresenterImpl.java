@@ -13,10 +13,11 @@ import com.next.micrm_module_3.view.interfaces.ActivityFragmentView;
 import java.util.List;
 
 /**
- * Created by wcamaly on 29/06/2016.
+ * This class is the mind that is responsible for managing the view of creating Activitys
  */
 public class ActivityPresenterImpl implements ActivityPresenter, ActivityInteractor.onActivityAction {
     ActivityFragmentView view;
+
     ActivityInteractor mAction ;
     public ActivityPresenterImpl(ActivityFragmentView a) {
         this.view = a;
@@ -82,9 +83,9 @@ public class ActivityPresenterImpl implements ActivityPresenter, ActivityInterac
     public void onDestroy() {
         view = null;
     }
-
     @Override
-    public void onDelete(int i) {
-        ModelPresenter.getInstances().getActivitys().remove(i);
+    public void delete(int i) {
+        mAction.deleteActivity(i);
     }
+
 }

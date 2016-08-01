@@ -33,5 +33,15 @@
     <string name="error_hour">Error en la hora</string>
     <string name="home">Home</string>
     <string name="action_search">Search</string>
+    <string name="date">Date</string>
+    <string name="hour">Hora</string>
+    <string name="duration">Duración</string>
+    <string name="asignTo">Asignado a</string>
+    <string name="twopoint">:</string>
+    <string name="change">Cambiar</string>
+    <string name="back">Regresar</string>
+    <string name="componen">Lo componen</string>
+    <string name="tel">Télefono</string>
+    <string name="email">Email</string>
 
 </resources>

@@ -8,7 +8,7 @@ import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.ActivityInteractor;
 
 /**
- * Created by wcamaly on 29/06/2016.
+ * This class is el interactor to ActivityPresenter to Model
  */
 public class ActivityInteractorImpl implements ActivityInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
@@ -56,7 +56,7 @@ public class ActivityInteractorImpl implements ActivityInteractor {
 
     @Override
     public void deleteActivity(int i) {
-        mModel.deleteActivity(i);
-
+        mModel.getPeoples().remove(i);
     }
+
 }

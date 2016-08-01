@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/description"
+                android:text="@string/name"
                 android:id="@+id/text1"
                 style="@style/labels"/>
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text=""
-                android:id="@+id/CommerceDescription" />
+                android:id="@+id/organizationName" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/title"
+                android:text="@string/tel"
                 android:id="@+id/text2"
                 style="@style/labels"/>
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text=""
-                android:id="@+id/CommerceTitle" />
+                android:id="@+id/organizationTel" />
 
         </LinearLayout>
 
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/date"
+                android:text="@string/addres"
                 android:id="@+id/text3"
                 style="@style/labels"/>
             <TextView
@@ -90,87 +90,10 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text=""
-                android:id="@+id/CommerceDate" />
+                android:id="@+id/organizationAddres" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/status"
-                android:id="@+id/text4"
-                style="@style/labels"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/twopoint"
-                style="@style/labelscharacter"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=""
-                android:id="@+id/CommerceStatus" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/value"
-                android:id="@+id/text5"
-                style="@style/labels"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/twopoint"
-                style="@style/labelscharacter"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=""
-                android:id="@+id/CommerceValue" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/componen"
-                android:id="@+id/text6"
-                style="@style/labels"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/twopoint"
-                style="@style/labelscharacter"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text=""
-                android:id="@+id/CommerceComponen" />
-
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -187,14 +110,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/change"
-            android:id="@+id/CommerceChange"
+            android:id="@+id/organizationChange"
             style="@style/buttonTransparent" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
-            android:id="@+id/CommerceBack"
+            android:id="@+id/organizationBack"
             style="@style/buttonTransparent"/>
     </LinearLayout>
 

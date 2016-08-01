@@ -6,7 +6,7 @@ import com.next.micrm_module_3.presenter.interfaces.OrganizationPresenter;
 import com.next.micrm_module_3.view.interfaces.OrganizationFragmentView;
 
 /**
- * Created by Wally1 on 11/06/2016.
+ * This class is the mind that is responsible for managing the view of creating Organization
  */
 public class OrganizationPresenterImpl implements OrganizationPresenter, OrganizationInteractor.onOrganization {
     OrganizationFragmentView mView;
@@ -33,9 +33,10 @@ public class OrganizationPresenterImpl implements OrganizationPresenter, Organiz
     }
 
     @Override
-    public void onDelete(int i) {
-        mInteractor.deleteOrganization(i);
+    public void delete(int i) {
+        mInteractor.delteOrganization(i);
     }
+
 
     @Override
     public void onErrorName() {

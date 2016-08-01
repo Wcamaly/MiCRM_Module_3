@@ -1,15 +1,11 @@
 package com.next.micrm_module_3.view.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +15,6 @@ import android.widget.Toast;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
-import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
@@ -32,9 +27,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is the view section activity
+ * This class is the view controller to create/change new Activity
  */
-public class FragmentActivityAction extends Fragment implements ActivityFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
+public class FragmentActivityActionCreate extends Fragment implements ActivityFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
     private ActivityPresenter pActivity;
     private Button ok,cancel;
     private TextView tType,tDescription,tDate,tHour;
@@ -45,59 +40,12 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_activity_action,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_activity_action_create,container,false);
         initializeView(rootView);
         setOnListener();
         return rootView;
     }
-    private void initializeView(View rootView){
-        pActivity = new ActivityPresenterImpl(this);
-        tType  = (TextView) rootView.findViewById(R.id.typeActivity);
-        tDescription = (TextView) rootView.findViewById(R.id.descriptionActivity);
-        tDate = (TextView) rootView.findViewById(R.id.dateActivity);
-        tHour = (TextView) rootView.findViewById(R.id.hourActivity);
-        ok = (Button) rootView.findViewById(R.id.okAcitvity);
-        cancel = (Button) rootView.findViewById(R.id.cancelactivity);
-        sAsignTo = (Spinner) rootView.findViewById(R.id.asignTo);
-        sAsigning = (Spinner) rootView.findViewById(R.id.selectedType);
-    }
-    private void setOnListener(){
-        ok.setOnClickListener(this);
-        cancel.setOnClickListener(this);
-        sAsignTo.setOnItemSelectedListener(this);
-        setAdapterAsigTo();
-        sAsigning.setOnItemSelectedListener(this);
-    }
 
-    private void setAdapterAsigTo() {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_spinner_item,
-                new String[]{
-                        getActivity().getString(R.string.peoples),
-                        getActivity().getString(R.string.commerce),
-                        getActivity().getString(R.string.organizations)
-                }
-        );
-        sAsignTo.setAdapter(adapter);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(getArguments().getInt(ConstantGeneral.ARG_ID_ACTIVITY) != -1)
-            inflater.inflate(R.menu.menu_fragments, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.delete:
-                actionDelete();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     public void setErrorType() {
         tType.setError(getActivity().getString(R.string.Error_type));
@@ -144,7 +92,7 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
 
     @Override
     public void actionCancel() {
-        getFragmentManager().popBackStack();
+        backFragment();
     }
 
     @Override
@@ -154,15 +102,9 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
                 tHour.getText().toString(),
                 tDate.getText().toString(),
                 enti);
-        getFragmentManager().popBackStack();
+        backFragment();
 
 
-    }
-
-    @Override
-    public void actionDelete() {
-        pActivity.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_ACTIVITY));
-        getFragmentManager().popBackStack();
     }
 
     @Override
@@ -205,5 +147,48 @@ public class FragmentActivityAction extends Fragment implements ActivityFragment
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private void initializeView(View rootView){
+        pActivity = new ActivityPresenterImpl(this);
+        tType  = (TextView) rootView.findViewById(R.id.typeActivity);
+        tDescription = (TextView) rootView.findViewById(R.id.descriptionActivity);
+        tDate = (TextView) rootView.findViewById(R.id.dateActivity);
+        tHour = (TextView) rootView.findViewById(R.id.hourActivity);
+        ok = (Button) rootView.findViewById(R.id.okAcitvity);
+        cancel = (Button) rootView.findViewById(R.id.cancelactivity);
+        sAsignTo = (Spinner) rootView.findViewById(R.id.asignTo);
+        sAsigning = (Spinner) rootView.findViewById(R.id.selectedType);
+    }
+
+    private void setOnListener(){
+        ok.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        sAsignTo.setOnItemSelectedListener(this);
+        setAdapterAsigTo();
+        sAsigning.setOnItemSelectedListener(this);
+    }
+
+    private void setAdapterAsigTo() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_spinner_item,
+                new String[]{
+                        getActivity().getString(R.string.peoples),
+                        getActivity().getString(R.string.commerce),
+                        getActivity().getString(R.string.organizations)
+                }
+        );
+        sAsignTo.setAdapter(adapter);
+    }
+
+    private void backFragment() {
+        FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new FragmentListEntidades();
+        Bundle arg = new Bundle();
+        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_ACTIVITY);
+        fragment.setArguments(arg);
+        ft.replace(R.id.fragment_section, fragment)
+                .commit();
     }
 }

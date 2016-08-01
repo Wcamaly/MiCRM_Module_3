@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.MainActivity"
+    tools:context=".view.BaseNavigationDrawerActivity"
     android:fitsSystemWindows="true"
     android:id="@+id/page">
     <LinearLayout
@@ -27,7 +27,9 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/fragment_section"></FrameLayout>
+            android:id="@+id/fragment_section"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"></FrameLayout>
 
     </LinearLayout>
 

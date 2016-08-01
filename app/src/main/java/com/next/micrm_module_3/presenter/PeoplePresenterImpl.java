@@ -6,7 +6,7 @@ import com.next.micrm_module_3.presenter.interfaces.PeoplePresenter;
 import com.next.micrm_module_3.view.interfaces.PeopleFrgmentView;
 
 /**
- * Created by wcamaly on 10/06/2016.
+ * This class is the mind that is responsible for managing the view of creating People
  */
 public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.onPeople  {
     PeopleFrgmentView mView;
@@ -15,7 +15,6 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
         this.mView = fragmentPeopleCreate;
         this.mInteractor = new PeopleInteractorImpl();
     }
-
 
     @Override
     public void onErrorName() {
@@ -41,8 +40,8 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
     }
 
     @Override
-    public void onDelete(int i) {
-        mInteractor.deletePeople(i);
+    public void delete(int i) {
+        mInteractor.deletePoeple(i);
     }
 
     @Override

@@ -9,5 +9,5 @@ public interface OrganizationPresenter {
     void addOrganization(String name, String tel,String addres);
     Organization getChangeOrganization(int i);
     void onDestroy();
-    void onDelete(int i);
+    void delete(int i);
 }

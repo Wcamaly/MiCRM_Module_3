@@ -10,7 +10,7 @@ import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.CommerceInteractor;
 
 /**
- * Created by wcamaly on 21/06/2016.
+ * This class is el interactor to CommercePresenter to Model
  */
 public class CommerceInteractorImpl implements CommerceInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
@@ -63,7 +63,9 @@ public class CommerceInteractorImpl implements CommerceInteractor {
     }
 
     @Override
-    public void deleteCommerce(int i) {
-        mModel.deleteCommerce(i);
+    public void delteCommerce(int i) {
+        mModel.getCommerces().remove(i);
     }
+
+
 }
