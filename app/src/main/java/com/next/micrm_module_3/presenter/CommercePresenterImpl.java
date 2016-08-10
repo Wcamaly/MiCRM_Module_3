@@ -3,10 +3,9 @@ package com.next.micrm_module_3.presenter;
 import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
-import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.CommerceInteractor;
 import com.next.micrm_module_3.presenter.interfaces.CommercePresenter;
-import com.next.micrm_module_3.view.interfaces.CommerceFragmentView;
+import com.next.micrm_module_3.view.interfaces.CommerceCreateFragmentView;
 
 import java.util.List;
 
@@ -14,9 +13,9 @@ import java.util.List;
  * This class is the mind that is responsible for managing the view of creating Commerce
  */
 public class CommercePresenterImpl implements CommercePresenter, CommerceInteractor.onCommerce {
-   CommerceFragmentView view;
+   CommerceCreateFragmentView view;
    CommerceInteractor cIteractor;
-    public CommercePresenterImpl(CommerceFragmentView v) {
+    public CommercePresenterImpl(CommerceCreateFragmentView v) {
         this.view = v;
      cIteractor = new CommerceInteractorImpl();
     }

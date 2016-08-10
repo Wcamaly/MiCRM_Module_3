@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Interface to Create Activity
  */
-public interface ActivityFragmentView {
+public interface ActivityCreateFragmentView {
     void setErrorType();
     void setErrorDescription();
     void setErrorDate();

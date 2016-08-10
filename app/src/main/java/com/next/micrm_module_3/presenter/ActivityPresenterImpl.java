@@ -5,10 +5,9 @@ import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.model.interfaces.Entidad;
-import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.interfaces.ActivityInteractor;
 import com.next.micrm_module_3.presenter.interfaces.ActivityPresenter;
-import com.next.micrm_module_3.view.interfaces.ActivityFragmentView;
+import com.next.micrm_module_3.view.interfaces.ActivityCreateFragmentView;
 
 import java.util.List;
 
@@ -16,10 +15,10 @@ import java.util.List;
  * This class is the mind that is responsible for managing the view of creating Activitys
  */
 public class ActivityPresenterImpl implements ActivityPresenter, ActivityInteractor.onActivityAction {
-    ActivityFragmentView view;
+    ActivityCreateFragmentView view;
 
     ActivityInteractor mAction ;
-    public ActivityPresenterImpl(ActivityFragmentView a) {
+    public ActivityPresenterImpl(ActivityCreateFragmentView a) {
         this.view = a;
         mAction = new ActivityInteractorImpl();
     }

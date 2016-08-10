@@ -21,7 +21,7 @@ import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.model.interfaces.Entidad;
 import com.next.micrm_module_3.presenter.ActivityPresenterImpl;
 import com.next.micrm_module_3.presenter.interfaces.ActivityPresenter;
-import com.next.micrm_module_3.view.interfaces.ActivityFragmentView;
+import com.next.micrm_module_3.view.interfaces.ActivityCreateFragmentView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * This class is the view controller to create/change new Activity
  */
-public class FragmentActivityActionCreate extends Fragment implements ActivityFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
+public class FragmentActivityActionCreate extends Fragment implements ActivityCreateFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
     private ActivityPresenter pActivity;
     private Button ok,cancel;
     private TextView tType,tDescription,tDate,tHour;

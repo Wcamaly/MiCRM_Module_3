@@ -3,15 +3,15 @@ package com.next.micrm_module_3.presenter;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationInteractor;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationPresenter;
-import com.next.micrm_module_3.view.interfaces.OrganizationFragmentView;
+import com.next.micrm_module_3.view.interfaces.OrganizationCreateFragmentView;
 
 /**
  * This class is the mind that is responsible for managing the view of creating Organization
  */
 public class OrganizationPresenterImpl implements OrganizationPresenter, OrganizationInteractor.onOrganization {
-    OrganizationFragmentView mView;
+    OrganizationCreateFragmentView mView;
     OrganizationInteractor mInteractor;
-    public OrganizationPresenterImpl(OrganizationFragmentView view) {
+    public OrganizationPresenterImpl(OrganizationCreateFragmentView view) {
         mView = view;
         mInteractor = new OrganizationInteractorImpl();
     }

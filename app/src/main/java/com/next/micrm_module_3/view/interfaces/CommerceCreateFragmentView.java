@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * Created by wcamaly on 21/06/2016.
  */
-public interface CommerceFragmentView {
+public interface CommerceCreateFragmentView {
     void setErrorTitle();
     void setErrorDescription();
     void setErrorDate();

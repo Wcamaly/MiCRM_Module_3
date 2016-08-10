@@ -12,20 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.presenter.OrganizationPresenterImpl;
 import com.next.micrm_module_3.presenter.interfaces.OrganizationPresenter;
-import com.next.micrm_module_3.view.interfaces.OrganizationFragmentView;
+import com.next.micrm_module_3.view.interfaces.OrganizationCreateFragmentView;
 
 /**
  * This class is the create new Organization
  */
-public class FragmentOrganizationCreate extends Fragment implements OrganizationFragmentView, View.OnClickListener {
+public class FragmentOrganizationCreate extends Fragment implements OrganizationCreateFragmentView, View.OnClickListener {
     private EditText name,tel,addres;
     private OrganizationPresenter mPresenter;
     private Button cancel,ok;

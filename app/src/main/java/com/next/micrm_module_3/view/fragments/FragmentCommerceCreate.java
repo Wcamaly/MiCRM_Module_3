@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,7 +20,7 @@ import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.presenter.CommercePresenterImpl;
 import com.next.micrm_module_3.presenter.interfaces.CommercePresenter;
-import com.next.micrm_module_3.view.interfaces.CommerceFragmentView;
+import com.next.micrm_module_3.view.interfaces.CommerceCreateFragmentView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +28,7 @@ import java.util.List;
 /**
  * This class is the create new Commerce, and add to list
  */
-public class FragmentCommerceCreate extends Fragment implements CommerceFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener {
+public class FragmentCommerceCreate extends Fragment implements CommerceCreateFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener {
 
     Button cPeople,cOrganization,ok,cancel;
     Spinner lPeoples,lOrganization;

@@ -3,15 +3,15 @@ package com.next.micrm_module_3.presenter;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.presenter.interfaces.PeopleInteractor;
 import com.next.micrm_module_3.presenter.interfaces.PeoplePresenter;
-import com.next.micrm_module_3.view.interfaces.PeopleFrgmentView;
+import com.next.micrm_module_3.view.interfaces.PeopleCreateFrgmentView;
 
 /**
  * This class is the mind that is responsible for managing the view of creating People
  */
 public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.onPeople  {
-    PeopleFrgmentView mView;
+    PeopleCreateFrgmentView mView;
     PeopleInteractor mInteractor;
-    public PeoplePresenterImpl(PeopleFrgmentView fragmentPeopleCreate) {
+    public PeoplePresenterImpl(PeopleCreateFrgmentView fragmentPeopleCreate) {
         this.mView = fragmentPeopleCreate;
         this.mInteractor = new PeopleInteractorImpl();
     }

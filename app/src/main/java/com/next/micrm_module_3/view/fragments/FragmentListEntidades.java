@@ -125,7 +125,7 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
         switch (getArguments().getInt(ConstantGeneral.SELECTED_ITEM_MENU)){
             case ConstantGeneral.ITEM_MENU_ACTIVITY:
                 getArguments().putInt(ConstantGeneral.ARG_ID_ACTIVITY, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentActivityActionCreate()).commit();
+                ft.replace(R.id.fragment_section,new FragmentActivityAction()).commit();
                 break;
             case ConstantGeneral.ITEM_MENU_COMMERCE:
                 getArguments().putInt(ConstantGeneral.ARG_ID_COMMERCE, itemPosition);

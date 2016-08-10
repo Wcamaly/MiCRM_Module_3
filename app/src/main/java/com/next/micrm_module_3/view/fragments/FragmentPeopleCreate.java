@@ -17,12 +17,12 @@ import com.next.micrm_module_3.constant.ConstantGeneral;
 import com.next.micrm_module_3.model.People;
 import com.next.micrm_module_3.presenter.PeoplePresenterImpl;
 import com.next.micrm_module_3.presenter.interfaces.PeoplePresenter;
-import com.next.micrm_module_3.view.interfaces.PeopleFrgmentView;
+import com.next.micrm_module_3.view.interfaces.PeopleCreateFrgmentView;
 
 /**
  * This class is the create new people
  */
-public class FragmentPeopleCreate extends Fragment implements PeopleFrgmentView, View.OnClickListener {
+public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmentView, View.OnClickListener {
     private EditText name, tel, email;
     private PeoplePresenter mPresenter;
     private Button ok,cancel;
