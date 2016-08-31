@@ -54,8 +54,8 @@ public class ActivityPresenterImpl implements ActivityPresenter, ActivityInterac
     }
 
     @Override
-    public void addActivity(String t, String d, String h, String date, Entidad e) {
-        mAction.createNewActivity(t,d,e,date,h,this);
+    public  boolean addActivity(String t, String d, String h, String date, Entidad e) {
+       return mAction.createNewActivity(t,d,e,date,h,this);
     }
 
     @Override

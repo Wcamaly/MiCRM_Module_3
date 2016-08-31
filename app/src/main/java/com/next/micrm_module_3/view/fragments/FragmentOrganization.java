@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
-import com.next.micrm_module_3.model.ActivityAction;
 import com.next.micrm_module_3.model.Commerce;
 import com.next.micrm_module_3.model.Organization;
 import com.next.micrm_module_3.model.People;
@@ -24,15 +23,15 @@ import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
 
 /**
- * Created by wcamaly on 10/08/2016.
+ * Created by wcamaly on 17/08/2016.
  */
-public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
+public class FragmentOrganization  extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
     Button back,change;
     ModelInteractor mModel = ModelPresenter.getInstances();
     int pos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView= inflater.inflate(R.layout.fragment_commerce,container,false);
+        View rootView= inflater.inflate(R.layout.fragment_organization,container,false);
         InitializerView(rootView);
         setOnListenerClick();
         return rootView;
@@ -44,35 +43,19 @@ public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetVi
     }
 
     private void InitializerView(View rootView) {
-        back = (Button) rootView.findViewById(R.id.CommerceBack);
-        change = (Button) rootView.findViewById(R.id.CommerceChange);
+        back = (Button) rootView.findViewById(R.id.organizationBack);
+        change = (Button) rootView.findViewById(R.id.organizationChange);
         if(getArguments() != null)
-            pos = getArguments().getInt(ConstantGeneral.ARG_ID_COMMERCE);
+            pos = getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION);
         else
-            Toast.makeText(getContext(),"Se produjo un error",Toast.LENGTH_LONG).show();Commerce comm = mModel.getCommerce(pos);
-        TextView des = (TextView) rootView.findViewById(R.id.CommerceDescription);
-        des.setText(comm.getDescription());
-        TextView tit = (TextView) rootView.findViewById(R.id.CommerceTitle);
-        tit.setText(comm.getTitle());
-        TextView date = (TextView) rootView.findViewById(R.id.CommerceDate);
-        date.setText(comm.getDateFinish());
-        TextView status = (TextView) rootView.findViewById(R.id.CommerceStatus);
-        status.setText(comm.getStatus());
-        TextView valor = (TextView) rootView.findViewById(R.id.CommerceValue);
-        valor.setText(Double.toString(comm.getValue()));
-        TextView asig = (TextView) rootView.findViewById(R.id.CommerceComponen);
-        String as = new String();
-        if(mModel.getOrganizations() != null) {
-            for (Organization com : mModel.getOrganizations()) {
-                as.concat(com.getName().concat("\n"));
-            }
-        }
-        if(mModel.getPeoples() != null){
-            for(People peo : mModel.getPeoples() ){
-                as.concat(peo.getName().concat("\n"));
-            }
-        }
-        asig.setText(as);
+            Toast.makeText(getContext(),"Se produjo un error",Toast.LENGTH_LONG).show();
+        Organization org = mModel.getOrganization(pos);
+        TextView name = (TextView) rootView.findViewById(R.id.organizationName);
+        name.setText(org.getName());
+        TextView tel = (TextView) rootView.findViewById(R.id.organizationTel);
+        tel.setText(org.getTel());
+        TextView addr = (TextView) rootView.findViewById(R.id.organizationAddres);
+        addr.setText(org.getAddress());
     }
 
     @Override
@@ -102,7 +85,7 @@ public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetVi
         FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
         Fragment fragment = new FragmentListEntidades();
         Bundle arg = new Bundle();
-        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_COMMERCE);
+        arg.putInt(ConstantGeneral.SELECTED_ITEM_MENU,ConstantGeneral.ITEM_MENU_ORGANIZATION);
         fragment.setArguments(arg);
         ft.replace(R.id.fragment_section, fragment)
                 .commit();
@@ -117,10 +100,10 @@ public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetVi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.CommerceBack:
+            case R.id.organizationBack:
                 actionBack();
                 break;
-            case R.id.CommerceChange:
+            case R.id.organizationChange:
                 actionChange();
                 break;
         }

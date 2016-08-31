@@ -27,6 +27,7 @@ import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
 public class FragmentActivityAction extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
     Button back,change;
     ModelInteractor mModel = ModelPresenter.getInstances();
+    int pos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.fragment_activity_action,container,false);
@@ -43,8 +44,11 @@ public class FragmentActivityAction extends Fragment implements ShowEntidadFragm
     private void InitializerView(View rootView) {
         back = (Button) rootView.findViewById(R.id.activityBack);
         change = (Button) rootView.findViewById(R.id.acitvityChange);
-        int pos = getArguments().getInt(ConstantGeneral.ARG_ID_ACTIVITY);
-        ActivityAction act = mModel.getActivityAction(pos);
+        if(getArguments() != null)
+            pos = getArguments().getInt(ConstantGeneral.ARG_ID_ACTIVITY);
+        else
+            Toast.makeText(getContext(),"Se produjo un error",Toast.LENGTH_LONG).show();
+         ActivityAction act = mModel.getActivityAction(pos);
         TextView date = (TextView)rootView.findViewById(R.id.activityDate);
         date.setText(act.getDate());
         TextView description= (TextView)rootView.findViewById(R.id.activityDescription);
@@ -100,6 +104,13 @@ public class FragmentActivityAction extends Fragment implements ShowEntidadFragm
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.activityBack:
+                actionBack();
+                break;
+            case R.id.acitvityChange:
+                actionChange();
+                break;
+        }
     }
 }

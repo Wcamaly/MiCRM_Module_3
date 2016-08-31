@@ -121,29 +121,32 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
     @Override
     public void onClickItemSelected(View v) {
         FragmentTransaction ft=  getActivity().getSupportFragmentManager().beginTransaction();
+        Fragment mFragment = null;
+        Bundle arg = new Bundle();
         int itemPosition = adapter.indexOfChild(v);
         switch (getArguments().getInt(ConstantGeneral.SELECTED_ITEM_MENU)){
             case ConstantGeneral.ITEM_MENU_ACTIVITY:
-                getArguments().putInt(ConstantGeneral.ARG_ID_ACTIVITY, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentActivityAction()).commit();
+
+                arg.putInt(ConstantGeneral.ARG_ID_ACTIVITY, itemPosition);
+                mFragment = new FragmentActivityAction();
                 break;
             case ConstantGeneral.ITEM_MENU_COMMERCE:
-                getArguments().putInt(ConstantGeneral.ARG_ID_COMMERCE, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentCommerceCreate()).commit();
+                arg.putInt(ConstantGeneral.ARG_ID_COMMERCE, itemPosition);
+                mFragment = new FragmentCommerce();
 
                 break;
             case ConstantGeneral.ITEM_MENU_ORGANIZATION:
-                getArguments().putInt(ConstantGeneral.ARG_ID_ORGANIZATION, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentOrganizationCreate()).commit();
+                arg.putInt(ConstantGeneral.ARG_ID_ORGANIZATION, itemPosition);
+                mFragment = new FragmentOrganization();
 
                 break;
             case ConstantGeneral.ITEM_MENU_PEOPLE:
-                getArguments().putInt(ConstantGeneral.ARG_ID_PEOPLE, itemPosition);
-                ft.replace(R.id.fragment_section,new FragmentPeopleCreate()).commit();
+                arg.putInt(ConstantGeneral.ARG_ID_PEOPLE, itemPosition);
+                mFragment = new FragmentPeople();
                 break;
         }
-
-
+        mFragment.setArguments(arg);
+        ft.replace(R.id.fragment_section,mFragment).commit();
     }
 
 

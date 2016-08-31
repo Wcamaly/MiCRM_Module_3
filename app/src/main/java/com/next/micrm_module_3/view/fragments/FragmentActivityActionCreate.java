@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * This class is the view controller to create/change new Activity
  */
-public class FragmentActivityActionCreate extends Fragment implements ActivityCreateFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener  {
+public class FragmentActivityActionCreate extends Fragment implements ActivityCreateFragmentView, View.OnClickListener {
     private ActivityPresenter pActivity;
     private Button ok,cancel;
     private TextView tType,tDescription,tDate,tHour;
@@ -97,12 +97,8 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
 
     @Override
     public void actionOk() {
-        pActivity.addActivity(tType.getText().toString(),
-                tDescription.getText().toString(),
-                tHour.getText().toString(),
-                tDate.getText().toString(),
-                enti);
-        backFragment();
+       if(! pActivity.addActivity(tType.getText().toString(),tDescription.getText().toString(), tHour.getText().toString(),tDate.getText().toString(),enti))
+           backFragment();
 
 
     }
@@ -124,30 +120,6 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
         }
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       switch (view.getId()){
-           case R.id.asignTo:
-               asign = position+1;
-               break;
-           case R.id.selectedType:
-               if (asign == 1){
-                   enti = pActivity.getListPoples().get(position);
-               }
-               if(asign == 2){
-                  enti = pActivity.getListOrganization().get(position);
-               }
-               if(asign == 3){
-                   enti = pActivity.getListCommerce().get(position);
-               }
-               break;
-       }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 
     private void initializeView(View rootView){
         pActivity = new ActivityPresenterImpl(this);
@@ -164,9 +136,38 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
     private void setOnListener(){
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
-        sAsignTo.setOnItemSelectedListener(this);
+        sAsignTo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                asign = position+1;
+                setSpinnerAsign();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         setAdapterAsigTo();
-        sAsigning.setOnItemSelectedListener(this);
+        sAsigning.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (asign == 1){
+                    enti = pActivity.getListPoples().get(position);
+                }
+                if(asign == 2){
+                    enti = pActivity.getListOrganization().get(position);
+                }
+                if(asign == 3){
+                    enti = pActivity.getListCommerce().get(position);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     private void setAdapterAsigTo() {
@@ -175,8 +176,8 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
                 android.R.layout.simple_spinner_item,
                 new String[]{
                         getActivity().getString(R.string.peoples),
-                        getActivity().getString(R.string.commerce),
-                        getActivity().getString(R.string.organizations)
+                        getActivity().getString(R.string.organizations),
+                        getActivity().getString(R.string.commerce)
                 }
         );
         sAsignTo.setAdapter(adapter);
@@ -191,4 +192,35 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
         ft.replace(R.id.fragment_section, fragment)
                 .commit();
     }
+    private void setSpinnerAsign (){
+        List list = null;
+        List<String> oString= new ArrayList<String>();
+
+        if (asign == 1){
+          list = pActivity.getListPoples();
+          for(int i=0; i<list.size();i++){
+              oString.add(((People)list.get(i)).getName());
+          }
+        }
+        if(asign == 2){
+           list = pActivity.getListOrganization();
+            for(int i=0; i<list.size();i++){
+                oString.add(((Organization)list.get(i)).getName());
+            }
+        }
+        if(asign == 3){
+            list = pActivity.getListCommerce();
+            for(int i=0; i<list.size();i++){
+                oString.add(((Commerce)list.get(i)).getTitle());
+            }
+        }
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_spinner_item,
+                oString
+        );
+        sAsigning.setAdapter(adapter);
+        sAsigning.setVisibility(View.VISIBLE);    }
 }

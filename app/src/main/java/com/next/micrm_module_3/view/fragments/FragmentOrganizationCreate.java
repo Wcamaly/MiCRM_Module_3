@@ -41,24 +41,6 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
-          inflater.inflate(R.menu.menu_fragments,menu);
-        }
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.delete:
-                actionDelete();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void setErrorName() {
         name.setError(getString(R.string.error_Name));
     }
@@ -83,23 +65,12 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
         mPresenter.addOrganization(name.getText().toString(),
                 tel.getText().toString(),
                 addres.getText().toString());
-        getFragmentManager().popBackStack();
+        backFragment();
 
 
     }
 
-    @Override
-    public void actionDelete() {
-        mPresenter.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION));
-    }
 
-    @Override
-    public void change(int i) {
-        Organization o = mPresenter.getChangeOrganization(i);
-        name.setText(o.getName());
-        tel.setText(o.getTel());
-        addres.setText(o.getAddress());
-    }
 
     @Override
     public void onClick(View v) {
@@ -108,7 +79,7 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
                 actionOk();
                 break;
             case R.id.cancelOrganization:
-                actionDelete();
+                actionCancel();
                 break;
         }
 
@@ -120,11 +91,6 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
         addres = (EditText) rootView.findViewById(R.id.addresOrganization);
         ok = (Button) rootView.findViewById(R.id.okOrganization);
         cancel = (Button) rootView.findViewById(R.id.cancelOrganization);
-
-        if(getArguments() != null && getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION) != -1){
-            change(getArguments().getInt(ConstantGeneral.ARG_ID_ORGANIZATION));
-            setHasOptionsMenu(true);
-        }
 
 
     }

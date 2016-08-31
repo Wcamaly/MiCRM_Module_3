@@ -44,24 +44,7 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
         super.onDestroy();
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE) != -1)
-            inflater.inflate(R.menu.menu_fragments, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.delete:
-                actionDelete();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
+     @Override
     public void setErrorName() {
         name.setError(getString(R.string.error_Name));
 
@@ -88,14 +71,7 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
 
     }
 
-
-
-    @Override
-    public void actionDelete() {
-        mPresenter.onDelete(getArguments().getInt(ConstantGeneral.ARG_ID_PEOPLE));
-    }
-
-    @Override
+      @Override
     public void change(int i) {
         People p = mPresenter.getChangePeople(i);
         name.setText(p.getName());

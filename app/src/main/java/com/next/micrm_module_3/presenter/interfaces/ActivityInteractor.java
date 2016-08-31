@@ -15,7 +15,7 @@ public interface ActivityInteractor {
         void onErrorDate();
         void onErrorHour();
     }
-    void createNewActivity(String t, String d, Entidad entidad,String date, String hour,onActivityAction listener);
+    boolean createNewActivity(String t, String d, Entidad entidad,String date, String hour,onActivityAction listener);
     ActivityAction getActivityChange(int i);
     void deleteActivity(int i);
 

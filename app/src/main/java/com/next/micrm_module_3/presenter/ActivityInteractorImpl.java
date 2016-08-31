@@ -14,7 +14,7 @@ public class ActivityInteractorImpl implements ActivityInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
 
     @Override
-    public void createNewActivity(String t, String d, Entidad entidad, String date, String hour, onActivityAction listener) {
+    public boolean createNewActivity(String t, String d, Entidad entidad, String date, String hour, onActivityAction listener) {
         boolean error = false;
         if(TextUtils.isEmpty(t)){
             listener.onErrorType();
@@ -46,6 +46,7 @@ public class ActivityInteractorImpl implements ActivityInteractor {
             a.asignActivity(entidad);
             mModel.setActivity(a);
         }
+        return error;
 
     }
 

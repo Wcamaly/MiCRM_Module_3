@@ -12,7 +12,7 @@ import java.util.List;
  * Created by wcamaly on 29/06/2016.
  */
 public interface ActivityPresenter {
-    void addActivity(String t, String d, String h, String date,Entidad e);
+    boolean addActivity(String t, String d, String h, String date,Entidad e);
     ActivityAction getActivityChange(int i);
     List<People> getListPoples();
     List<Organization> getListOrganization();
