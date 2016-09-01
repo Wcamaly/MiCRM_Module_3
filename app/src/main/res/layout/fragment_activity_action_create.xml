@@ -11,19 +11,22 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        style="@style/editText" >
+        style="@style/editText"
+        android:layout_above="@+id/bottoners">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/typeActivity"
             android:hint="@string/type"
+            android:inputType="text"
             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/descriptionActivity"
-            android:hint="@string/description" />
+            android:hint="@string/description"
+            android:inputType="text"/>
 
         <Spinner
             android:layout_width="match_parent"
@@ -40,15 +43,17 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="time"
+            android:inputType="date"
             android:ems="10"
             android:id="@+id/dateActivity"
-            android:hint="@string/_10_1_2016" />
+            android:hint="@string/_10_1_2016"
+            />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hourActivity"
-            android:hint="@string/_10_20"/>
+            android:hint="@string/_10_20"
+            android:inputType="time"/>
 
 
 
@@ -63,7 +68,8 @@
         style="@style/layoutbackGrey"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="false"
+        android:id="@+id/bottoners">
 
         <Button
             android:layout_width="wrap_content"

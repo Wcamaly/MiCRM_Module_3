@@ -1,6 +1,7 @@
 package com.next.micrm_module_3.view;
 
 import android.annotation.TargetApi;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -22,28 +23,50 @@ public class BaseNavigationDrawerActivity extends AppCompatActivity implements N
     DrawerLayout mDrawerLayout;
     Toolbar mToolbar;
     NavigationView mNavigationView;
-
+    boolean mTwoPane;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_navigation_drawer);
-
+        if(findViewById(R.id.page) != null){
+            mTwoPane = false ;
+        }
+        else{
+            mTwoPane = true ;
+        }
         initializeViews();
         initializeActionBar();
-
+        initializerFragment();
     }
 
     private void initializeViews() {
-        mDrawerLayout = (DrawerLayout)findViewById(R.id.page);
-        mNavigationView = (NavigationView)findViewById(R.id.navigation_drawer);
-        mNavigationView.setNavigationItemSelectedListener(this);
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        if(!mTwoPane) {
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.page);
+            mNavigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+            mNavigationView.setNavigationItemSelectedListener(this);
+            mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        }else{
+            mNavigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+            mNavigationView.setNavigationItemSelectedListener(this);
+            mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        }
+
+
     }
 
     private void initializeActionBar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_view_headline_white_24dp);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (!mTwoPane) {
+            getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_view_headline_white_24dp);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+    private void initializerFragment(){
+        Fragment fragment = new FragmentHome();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_section, fragment)
+                .commit();
+        getSupportActionBar().setTitle(getString(R.string.home));
     }
 
     @TargetApi(Build.VERSION_CODES.DONUT)
@@ -65,7 +88,6 @@ public class BaseNavigationDrawerActivity extends AppCompatActivity implements N
         boolean fragmentTransaction = false;
         Fragment fragment = new FragmentListEntidades();
         Bundle arg = new Bundle();
-
         switch (item.getItemId()) {
             case R.id.menu_seccion_1:
                 fragment = new FragmentHome();
@@ -98,8 +120,8 @@ public class BaseNavigationDrawerActivity extends AppCompatActivity implements N
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
         }
-
-        mDrawerLayout.closeDrawers();
+        if(!mTwoPane)
+            mDrawerLayout.closeDrawers();
 
         return true;
     }

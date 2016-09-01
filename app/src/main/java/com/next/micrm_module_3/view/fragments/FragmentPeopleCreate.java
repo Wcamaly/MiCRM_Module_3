@@ -1,5 +1,6 @@
 package com.next.micrm_module_3.view.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -63,10 +65,10 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
     }
     @Override
     public void actionOk() {
-        mPresenter.addPeople(name.getText().toString(),
+       if(! mPresenter.addPeople(name.getText().toString(),
                 tel.getText().toString(),
-                email.getText().toString());
-        backFragment();
+                email.getText().toString()))
+            backFragment();
 
 
     }
@@ -80,6 +82,9 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
     }
     @Override
     public void onClick(View v) {
+        //Lineas para ocultar el teclado virtual (Hide keyboard)
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(email.getWindowToken(), 0);
         switch (v.getId()){
             case R.id.okPeople:
                  actionOk();

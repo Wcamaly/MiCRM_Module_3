@@ -25,7 +25,7 @@ public class ActivityInteractorImpl implements ActivityInteractor {
             error = true;
 
         }
-        if(entidad != null){
+        if(entidad == null){
             listener.onErrorAsign();
             error = true;
         }

@@ -6,7 +6,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        style="@style/adapterListText"/>
+        style="@style/adapterListText"
+        android:text="Example"/>
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dp"

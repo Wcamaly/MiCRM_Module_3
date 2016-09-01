@@ -23,7 +23,7 @@ import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
 
 /**
- * Created by wcamaly on 17/08/2016.
+ * This class, It is responsible for displaying the data of an Organization.
  */
 public class FragmentOrganization  extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
     Button back,change;

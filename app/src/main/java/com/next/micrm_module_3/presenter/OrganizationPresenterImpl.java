@@ -17,9 +17,10 @@ public class OrganizationPresenterImpl implements OrganizationPresenter, Organiz
     }
 
     @Override
-    public void addOrganization(String name, String tel, String addres) {
-       if(mView != null)
-            mInteractor.createOrganization(name,tel,addres,this);
+    public boolean addOrganization(String name, String tel, String addres) {
+        if(mView != null)
+            return  mInteractor.createOrganization(name,tel,addres,this);
+        return true;
     }
 
     @Override

@@ -21,10 +21,10 @@ public class CommercePresenterImpl implements CommercePresenter, CommerceInterac
     }
 
     @Override
-    public void addCommerce(String t, String d, double v, String s, String date, People pe, Organization or) {
-       if(view != null)
-        cIteractor.createCommerce(t,d,v,s,date,this,pe,or);
-
+    public boolean addCommerce(String t, String d, double v, String s, String date, People pe, Organization or) {
+        if(view != null)
+            return cIteractor.createCommerce(t,d,v,s,date,this,pe,or);
+        return true;
     }
 
     @Override

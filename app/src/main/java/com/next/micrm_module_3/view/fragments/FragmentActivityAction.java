@@ -22,7 +22,7 @@ import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
 
 /**
- * Created by wcamaly on 02/08/2016.
+ * This class, It is responsible for displaying the data of an activity.
  */
 public class FragmentActivityAction extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
     Button back,change;
@@ -57,8 +57,6 @@ public class FragmentActivityAction extends Fragment implements ShowEntidadFragm
         type.setText(act.getType());
         TextView hour= (TextView)rootView.findViewById(R.id.activityHour);
         hour.setText(act.getHour());
-        TextView duration= (TextView)rootView.findViewById(R.id.activityDuration);
-        duration.setText(act.getDuration());
         TextView entidad= (TextView)rootView.findViewById(R.id.activityAsign);
         entidad.setText("In progress...");
     }

@@ -1,14 +1,17 @@
 package com.next.micrm_module_3.view.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +31,11 @@ import java.util.List;
 /**
  * This class is the create new Commerce, and add to list
  */
-public class FragmentCommerceCreate extends Fragment implements CommerceCreateFragmentView, View.OnClickListener,AdapterView.OnItemSelectedListener {
+public class FragmentCommerceCreate extends Fragment implements CommerceCreateFragmentView, View.OnClickListener{
 
     Button cPeople,cOrganization,ok,cancel;
     Spinner lPeoples,lOrganization;
-    TextView tTitle,tDescription,tValue,tDate,tStatus;
+    EditText tTitle,tDescription,tValue,tDate,tStatus;
     CommercePresenter pCommerce;
     People selectPeople = null;
     Organization selectOrganization = null;
@@ -134,17 +137,19 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
 
     @Override
     public void actionOk() {
-        pCommerce.addCommerce(tTitle.getText().toString(),
+        Double aux=null;
+        if (!tValue.getText().toString().equals(""))
+            aux=Double.parseDouble(tValue.getText().toString());
+
+        if(! pCommerce.addCommerce(tTitle.getText().toString(),
                 tDescription.getText().toString(),
-                Double.parseDouble(tValue.getText().toString()),
+                aux,
                 tStatus.getText().toString(),
                 tDate.getText().toString(),
                 selectPeople,
-                selectOrganization);
-        backFragment();
+                selectOrganization))
+            backFragment();
     }
-
-
 
     @Override
     public void change(int i) {
@@ -160,6 +165,9 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
 
     @Override
     public void onClick(View v) {
+        //Lineas para ocultar el teclado virtual (Hide keyboard)
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(tStatus.getWindowToken(), 0);
         switch (v.getId()){
             case R.id.okCommerce:
                 actionOk();
@@ -177,30 +185,16 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (id == R.id.spinnerOrganization ){
-            selectOrganization = pCommerce.getListOrganization().get(position);
-        }
-        if(id == R.id.spinnerPeople){
-            selectPeople = pCommerce.getListPoples().get(position);
-        }
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
     private void initializeView(View rootView) {
         lPeoples = (Spinner) rootView.findViewById(R.id.spinnerPeople);
-        lPeoples.setOnItemSelectedListener(this);
+
         lOrganization = (Spinner) rootView.findViewById(R.id.spinnerOrganization);
-        lOrganization.setOnItemSelectedListener(this);
-        tTitle = (TextView) rootView.findViewById(R.id.titleCommerce);
-        tDescription = (TextView) rootView.findViewById(R.id.descriptionCommerce);
-        tValue = (TextView) rootView.findViewById(R.id.valorCommerce);
-        tDate = (TextView) rootView.findViewById(R.id.valorCommerce);
-        tStatus = (TextView) rootView.findViewById(R.id.statusCommerce);
+        tTitle = (EditText) rootView.findViewById(R.id.titleCommerce);
+        tDescription = (EditText) rootView.findViewById(R.id.descriptionCommerce);
+        tValue = (EditText) rootView.findViewById(R.id.valorCommerce);
+        tDate = (EditText) rootView.findViewById(R.id.valorCommerce);
+        tStatus = (EditText) rootView.findViewById(R.id.statusCommerce);
         cPeople = (Button) rootView.findViewById(R.id.createPeople);
         cOrganization = (Button) rootView.findViewById(R.id.createOrganization);
         cancel= (Button) rootView.findViewById(R.id.cancelCommerce);
@@ -223,5 +217,28 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
         cOrganization.setOnClickListener(this);
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
+        lPeoples.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectOrganization = pCommerce.getListOrganization().get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        lOrganization.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectPeople = pCommerce.getListPoples().get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  * Created by wcamaly on 21/06/2016.
  */
 public interface CommercePresenter {
-    void addCommerce(String t, String d, double v, String s, String date, People pe, Organization or);
+    boolean addCommerce(String t, String d, double v, String s, String date, People pe, Organization or);
     Commerce getCommerceChange(int i);
     List<People> getListPoples();
     List<Organization> getListOrganization();

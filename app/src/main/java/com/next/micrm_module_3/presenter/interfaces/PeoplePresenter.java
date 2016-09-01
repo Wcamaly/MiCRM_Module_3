@@ -6,7 +6,7 @@ import com.next.micrm_module_3.model.People;
  * Created by wcamaly on 10/06/2016.
  */
 public interface PeoplePresenter {
-    void addPeople(String name, String tel,String email);
+    boolean addPeople(String name, String tel,String email);
     People getChangePeople(int i);
     void onDestroy();
     void delete(int i);

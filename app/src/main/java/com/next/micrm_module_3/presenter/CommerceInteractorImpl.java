@@ -15,7 +15,7 @@ import com.next.micrm_module_3.presenter.interfaces.CommerceInteractor;
 public class CommerceInteractorImpl implements CommerceInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
     @Override
-    public void createCommerce(String t, String d, double v, String s, String date, onCommerce listener, People pe, Organization or) {
+    public boolean createCommerce(String t, String d, double v, String s, String date, onCommerce listener, People pe, Organization or) {
         boolean error = false;
         if (TextUtils.isEmpty(t)){
             listener.onErrorTitle();
@@ -37,7 +37,7 @@ public class CommerceInteractorImpl implements CommerceInteractor {
             listener.onErrorDate();
             error = true;
         }
-        if (pe == null && or == null ){
+        if (pe == null || or == null ){
             listener.onErrorAsign();
             error = true;
         }
@@ -55,6 +55,7 @@ public class CommerceInteractorImpl implements CommerceInteractor {
                 come.setOrg(or);
             mModel.setCommerce(come);
         }
+        return error;
     }
 
     @Override

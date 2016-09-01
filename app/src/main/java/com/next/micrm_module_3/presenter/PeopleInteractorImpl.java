@@ -13,7 +13,7 @@ public class PeopleInteractorImpl implements PeopleInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
 
     @Override
-    public void createPeople(String name, String email, String tel, onPeople listener) {
+    public boolean createPeople(String name, String email, String tel, onPeople listener) {
         boolean error = false;
         if (TextUtils.isEmpty(name)){
             listener.onErrorName();
@@ -35,6 +35,7 @@ public class PeopleInteractorImpl implements PeopleInteractor {
             mModel.setPeople(p);
 
         }
+        return error;
 
     }
 

@@ -24,7 +24,7 @@ import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
 
 /**
- * Created by wcamaly on 10/08/2016.
+ * This class, It is responsible for displaying the data of an Commerce.
  */
 public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetView, View.OnClickListener {
     Button back,change;

@@ -12,7 +12,7 @@ public interface PeopleInteractor {
         void onErrorEmail();
         void onDestroy();
     }
-    void createPeople(String name,String email,String tel, final onPeople listener);
+    boolean createPeople(String name,String email,String tel, final onPeople listener);
     People getChangePeople(int i);
     void deletePoeple(int i);
 

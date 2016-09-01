@@ -1,14 +1,17 @@
 package com.next.micrm_module_3.view.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +35,7 @@ import java.util.List;
 public class FragmentActivityActionCreate extends Fragment implements ActivityCreateFragmentView, View.OnClickListener {
     private ActivityPresenter pActivity;
     private Button ok,cancel;
-    private TextView tType,tDescription,tDate,tHour;
+    private EditText tType,tDescription,tDate,tHour;
     private Spinner sAsignTo,sAsigning;
     private int asign = -1;
     private Entidad enti = null;
@@ -110,6 +113,9 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
 
     @Override
     public void onClick(View v) {
+        //Lineas para ocultar el teclado virtual (Hide keyboard)
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(tHour.getWindowToken(), 0);
         switch (v.getId()){
             case R.id.okAcitvity:
                 actionOk();
@@ -123,10 +129,10 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
 
     private void initializeView(View rootView){
         pActivity = new ActivityPresenterImpl(this);
-        tType  = (TextView) rootView.findViewById(R.id.typeActivity);
-        tDescription = (TextView) rootView.findViewById(R.id.descriptionActivity);
-        tDate = (TextView) rootView.findViewById(R.id.dateActivity);
-        tHour = (TextView) rootView.findViewById(R.id.hourActivity);
+        tType  = (EditText) rootView.findViewById(R.id.typeActivity);
+        tDescription = (EditText) rootView.findViewById(R.id.descriptionActivity);
+        tDate = (EditText) rootView.findViewById(R.id.dateActivity);
+        tHour = (EditText) rootView.findViewById(R.id.hourActivity);
         ok = (Button) rootView.findViewById(R.id.okAcitvity);
         cancel = (Button) rootView.findViewById(R.id.cancelactivity);
         sAsignTo = (Spinner) rootView.findViewById(R.id.asignTo);

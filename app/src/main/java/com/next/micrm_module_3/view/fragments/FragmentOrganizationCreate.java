@@ -1,6 +1,7 @@
 package com.next.micrm_module_3.view.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -57,15 +59,15 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
 
     @Override
     public void actionCancel() {
-        getFragmentManager().popBackStack();
+        backFragment();
     }
 
     @Override
     public void actionOk() {
-        mPresenter.addOrganization(name.getText().toString(),
+       if (! mPresenter.addOrganization(name.getText().toString(),
                 tel.getText().toString(),
-                addres.getText().toString());
-        backFragment();
+                addres.getText().toString()))
+            backFragment();
 
 
     }
@@ -74,6 +76,9 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
 
     @Override
     public void onClick(View v) {
+        //Lineas para ocultar el teclado virtual (Hide keyboard)
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(addres.getWindowToken(), 0);
         switch (v.getId()){
             case R.id.okOrganization:
                 actionOk();

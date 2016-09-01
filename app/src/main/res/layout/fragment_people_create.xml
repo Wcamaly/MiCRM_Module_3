@@ -9,14 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentRight="false"
         android:layout_alignParentEnd="true"
-        style="@style/editText" >
+        style="@style/editText"
+        android:layout_above="@+id/linearLayout3">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/namePeople"
             android:hint="@string/name"
+            android:inputType="text"
             />
 
         <EditText
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:gravity="right|bottom"
         style="@style/layoutbackGrey"
+        android:id="@+id/linearLayout3"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">

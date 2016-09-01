@@ -13,7 +13,7 @@ import com.next.micrm_module_3.presenter.interfaces.OrganizationInteractor;
 public class OrganizationInteractorImpl implements OrganizationInteractor {
     ModelInteractor mModel = ModelPresenter.getInstances();
     @Override
-    public void createOrganization(String name, String tel, String dir,onOrganization listener) {
+    public boolean createOrganization(String name, String tel, String dir,onOrganization listener) {
         boolean error = false;
         if (TextUtils.isEmpty(name)){
             listener.onErrorName();
@@ -35,6 +35,7 @@ public class OrganizationInteractorImpl implements OrganizationInteractor {
             mModel.setOrganization(o);
 
         }
+        return error;
     }
 
     @Override

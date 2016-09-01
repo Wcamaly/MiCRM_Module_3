@@ -19,7 +19,7 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
     @Override
     public void onErrorName() {
        if(mView != null)
-        mView.setErrorName();
+           mView.setErrorName();
     }
 
     @Override
@@ -45,8 +45,8 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
     }
 
     @Override
-    public void addPeople(String name, String tel, String email) {
-        mInteractor.createPeople(name,email,tel, this);
+    public boolean addPeople(String name, String tel, String email) {
+       return mInteractor.createPeople(name,email,tel, this);
     }
 
     @Override
