@@ -137,7 +137,7 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
 
     @Override
     public void actionOk() {
-        Double aux=null;
+        Double aux= new Double(0);
         if (!tValue.getText().toString().equals(""))
             aux=Double.parseDouble(tValue.getText().toString());
 
@@ -193,7 +193,7 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
         tTitle = (EditText) rootView.findViewById(R.id.titleCommerce);
         tDescription = (EditText) rootView.findViewById(R.id.descriptionCommerce);
         tValue = (EditText) rootView.findViewById(R.id.valorCommerce);
-        tDate = (EditText) rootView.findViewById(R.id.valorCommerce);
+        tDate = (EditText) rootView.findViewById(R.id.dateFinishCommerce);
         tStatus = (EditText) rootView.findViewById(R.id.statusCommerce);
         cPeople = (Button) rootView.findViewById(R.id.createPeople);
         cOrganization = (Button) rootView.findViewById(R.id.createOrganization);

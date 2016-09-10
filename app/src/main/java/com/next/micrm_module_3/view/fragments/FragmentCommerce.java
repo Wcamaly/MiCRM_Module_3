@@ -61,15 +61,17 @@ public class FragmentCommerce extends Fragment implements ShowEntidadFragmanetVi
         TextView valor = (TextView) rootView.findViewById(R.id.CommerceValue);
         valor.setText(Double.toString(comm.getValue()));
         TextView asig = (TextView) rootView.findViewById(R.id.CommerceComponen);
-        String as = new String();
-        if(mModel.getOrganizations() != null) {
-            for (Organization com : mModel.getOrganizations()) {
-                as.concat(com.getName().concat("\n"));
+        StringBuilder as = new StringBuilder();
+        if(comm.getOrganizations() != null) {
+            for (Organization com : comm.getOrganizations()) {
+                as.append(com.getName());
+                as.append("\n");
             }
         }
-        if(mModel.getPeoples() != null){
-            for(People peo : mModel.getPeoples() ){
-                as.concat(peo.getName().concat("\n"));
+        if(comm.getPeoples() != null){
+            for(People peo : comm.getPeoples() ){
+                as.append(peo.getName());
+                as.append("\n");
             }
         }
         asig.setText(as);

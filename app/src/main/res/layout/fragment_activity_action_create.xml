@@ -43,7 +43,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="datetime"
             android:ems="10"
             android:id="@+id/dateActivity"
             android:hint="@string/_10_1_2016"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/hourActivity"
             android:hint="@string/_10_20"
-            android:inputType="time"/>
+            android:inputType="date|text"/>
 
 
 

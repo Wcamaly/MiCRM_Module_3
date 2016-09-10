@@ -3,7 +3,6 @@ package com.next.micrm_module_3.view.interfaces;
 import android.view.View;
 
 import com.next.micrm_module_3.model.ModelEntidadList;
-import com.next.micrm_module_3.model.interfaces.Entidad;
 
 import java.util.List;
 

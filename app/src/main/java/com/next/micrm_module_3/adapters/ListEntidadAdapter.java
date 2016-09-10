@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.model.ModelEntidadList;
-import com.next.micrm_module_3.model.interfaces.Entidad;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wcamaly on 06/07/2016.
+ * This class is adapter of the lists of entities
  */
 public class ListEntidadAdapter  extends RecyclerView.Adapter<EntidadViewHolder> {
     private Context context;

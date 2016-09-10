@@ -8,7 +8,7 @@ import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.model.ModelEntidadList;
 
 /**
- * Created by wcamaly on 06/07/2016.
+ * This class is to store data adapter
  */
 public class EntidadViewHolder extends RecyclerView.ViewHolder {
     private final TextView title;

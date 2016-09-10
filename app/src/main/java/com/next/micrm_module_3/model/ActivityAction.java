@@ -1,6 +1,11 @@
 package com.next.micrm_module_3.model;
 
 import com.next.micrm_module_3.model.interfaces.Entidad;
+/*
+* This class is the model to Activitys
+*/
+
+
 
 public class ActivityAction implements Entidad {
 

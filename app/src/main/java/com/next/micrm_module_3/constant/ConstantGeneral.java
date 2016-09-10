@@ -1,7 +1,7 @@
 package com.next.micrm_module_3.constant;
 
 /**
- * Created by wcamaly on 10/06/2016.
+ * Constant Generals
  */
 public class ConstantGeneral {
     public static final String  ARG_ID_PEOPLE = "arg_id_people";

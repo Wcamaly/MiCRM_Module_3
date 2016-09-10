@@ -1,7 +1,9 @@
 package com.next.micrm_module_3.model;
 
 import com.next.micrm_module_3.model.interfaces.Entidad;
-
+/*
+* This class is the model to Organization
+*/
 public class Organization implements Entidad {
 	private String address;
 	private String name;

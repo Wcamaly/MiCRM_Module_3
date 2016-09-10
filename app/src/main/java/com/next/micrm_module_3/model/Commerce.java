@@ -4,7 +4,9 @@ import com.next.micrm_module_3.model.interfaces.Entidad;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+* This class is the model to Commerce
+*/
 public class Commerce implements Entidad {
 	private String description;
 	private String title;
@@ -58,15 +60,15 @@ public class Commerce implements Entidad {
 		this.status = status;
 		isEmpty =false;
 	}
-	public Organization getOrg(int i) {
-		return org.get(i);
+	public List<Organization> getOrganizations() {
+		return org;
 	}
 	public void setOrg(Organization org) {
 		this.org.add(org);
 		isEmpty =false;
 	}
-	public People getPeoples(int i) {
-		return peoples.get(i);
+	public List<People> getPeoples() {
+		return peoples;
 	}
 	public void setPeoples(People peoples) {
 		this.peoples.add(peoples);
@@ -83,24 +85,7 @@ public class Commerce implements Entidad {
 		else
 			return true;
 	}
-	public void printPeople(){
-		if(!peoples.isEmpty()){
-			for(int i=0; i< peoples.size();i++){
-				System.out.println(i+1 +"- "+peoples.get(i).getName()+"\n");
-			}
-		}else{
-			System.out.println("0- No hay Persona cargada.\n");
-		}
-	}
-	public void printOrganization(){
-		if(!org.isEmpty()){
-			for(int i=0; i< org.size();i++){
-				System.out.println(i+1 +"- "+org.get(i).getName()+"\n");
-			}
-		}else{
-			System.out.println("0- No hay Organizaciones Cargadas.\n");
-		}
-	}
+
 	public void removePeopleOrganization(People p){
 		if(p != null)
 			peoples.remove(p);

@@ -17,6 +17,10 @@ import android.widget.Toast;
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
 import com.next.micrm_module_3.model.ActivityAction;
+import com.next.micrm_module_3.model.Commerce;
+import com.next.micrm_module_3.model.Organization;
+import com.next.micrm_module_3.model.People;
+import com.next.micrm_module_3.model.interfaces.Entidad;
 import com.next.micrm_module_3.model.interfaces.ModelInteractor;
 import com.next.micrm_module_3.presenter.ModelPresenter;
 import com.next.micrm_module_3.view.interfaces.ShowEntidadFragmanetView;
@@ -58,7 +62,21 @@ public class FragmentActivityAction extends Fragment implements ShowEntidadFragm
         TextView hour= (TextView)rootView.findViewById(R.id.activityHour);
         hour.setText(act.getHour());
         TextView entidad= (TextView)rootView.findViewById(R.id.activityAsign);
-        entidad.setText("In progress...");
+
+        Class<? extends Entidad> a = act.whoAsign().getClass();
+        switch (a.getName()){
+            case "com.next.micrm_module_3.model.People":
+                entidad.setText(((People)act.whoAsign()).getName());
+                break;
+            case "com.next.micrm_module_3.model.Commerce":
+                entidad.setText(((Commerce)act.whoAsign()).getTitle());
+                break;
+            case "com.next.micrm_module_3.model.Organization":
+                entidad.setText(((Organization)act.whoAsign()).getName());
+                break;
+        }
+
+
     }
 
     @Override

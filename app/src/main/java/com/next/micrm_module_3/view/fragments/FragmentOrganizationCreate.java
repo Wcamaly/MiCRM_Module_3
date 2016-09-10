@@ -71,9 +71,6 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
 
 
     }
-
-
-
     @Override
     public void onClick(View v) {
         //Lineas para ocultar el teclado virtual (Hide keyboard)
