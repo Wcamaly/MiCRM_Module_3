@@ -9,4 +9,5 @@ public interface OrganizationCreateFragmentView {
     void setErrorTel();
     void actionCancel();
     void actionOk();
+    void notificationCreate(boolean s);
 }

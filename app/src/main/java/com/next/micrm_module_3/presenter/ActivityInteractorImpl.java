@@ -46,6 +46,7 @@ public class ActivityInteractorImpl implements ActivityInteractor {
             a.asignActivity(entidad);
             mModel.setActivity(a);
         }
+        listener.onCreate(!error);
         return error;
 
     }

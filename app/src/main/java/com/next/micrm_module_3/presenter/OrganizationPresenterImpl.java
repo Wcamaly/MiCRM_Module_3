@@ -60,4 +60,11 @@ public class OrganizationPresenterImpl implements OrganizationPresenter, Organiz
             mView.setErrorAddres();
         }
     }
+
+    @Override
+    public void onCreate(boolean s) {
+        if(mView !=null){
+            mView.notificationCreate(s);
+        }
+    }
 }

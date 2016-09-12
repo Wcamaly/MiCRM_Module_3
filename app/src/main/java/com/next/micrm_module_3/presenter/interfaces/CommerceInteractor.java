@@ -17,6 +17,7 @@ public interface CommerceInteractor
         void onErrorValue();
         void onErrorStatus();
         void onErrorDate();
+        void onCreate(boolean s);
     }
     boolean createCommerce(String t, String d, double v, String s, String date, onCommerce listener, People pe, Organization or);
     Entidad getCommerceChange(int i);

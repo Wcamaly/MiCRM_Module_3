@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
@@ -39,13 +40,11 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
 
         return rootView;
     }
-
     @Override
     public void onDestroy() {
         mPresenter.onDestroy();
         super.onDestroy();
     }
-
      @Override
     public void setErrorName() {
         name.setError(getString(R.string.error_Name));
@@ -59,6 +58,15 @@ public class FragmentPeopleCreate extends Fragment implements PeopleCreateFrgmen
     public void setErrorTel() {
         tel.setError(getString(R.string.error_Tel));
     }
+
+    @Override
+    public void notificationCreate(boolean s) {
+        if(s)
+            Toast.makeText(getActivity(),"Se a creado Correctamente", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(getActivity(),"No se pudo Crear Correctamente", Toast.LENGTH_LONG).show();
+    }
+
     @Override
     public void actionCancel() {
         backFragment();

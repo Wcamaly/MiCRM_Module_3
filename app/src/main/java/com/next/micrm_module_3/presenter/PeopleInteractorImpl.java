@@ -35,6 +35,7 @@ public class PeopleInteractorImpl implements PeopleInteractor {
             mModel.setPeople(p);
 
         }
+        listener.onCreate(!error);
         return error;
 
     }

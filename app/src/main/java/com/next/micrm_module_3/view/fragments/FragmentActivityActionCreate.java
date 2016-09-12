@@ -107,6 +107,14 @@ public class FragmentActivityActionCreate extends Fragment implements ActivityCr
     }
 
     @Override
+    public void notificationCreate(boolean s) {
+        if(s)
+            Toast.makeText(getActivity(),"Se a creado Correctamente", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(getActivity(),"No se pudo Crear Correctamente", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void change(int i) {
 
     }

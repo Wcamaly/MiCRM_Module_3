@@ -40,6 +40,11 @@ public class PeoplePresenterImpl implements PeoplePresenter, PeopleInteractor.on
     }
 
     @Override
+    public void onCreate(boolean s) {
+        mView.notificationCreate(s);
+    }
+
+    @Override
     public void delete(int i) {
         mInteractor.deletePoeple(i);
     }

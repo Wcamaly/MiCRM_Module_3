@@ -95,4 +95,11 @@ public class CommercePresenterImpl implements CommercePresenter, CommerceInterac
         view.setErrorDate();
      }
     }
+
+    @Override
+    public void onCreate(boolean s) {
+        if(view != null){
+            view.notificationCreate(s);
+        }
+    }
 }

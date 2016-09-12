@@ -54,6 +54,12 @@ public class ActivityPresenterImpl implements ActivityPresenter, ActivityInterac
     }
 
     @Override
+    public void onCreate(boolean s) {
+        if( view != null)
+            view.notificationCreate(s);
+    }
+
+    @Override
     public  boolean addActivity(String t, String d, String h, String date, Entidad e) {
        return mAction.createNewActivity(t,d,e,date,h,this);
     }

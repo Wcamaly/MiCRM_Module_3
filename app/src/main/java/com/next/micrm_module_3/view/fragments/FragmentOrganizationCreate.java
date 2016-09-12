@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.next.micrm_module_3.R;
 import com.next.micrm_module_3.constant.ConstantGeneral;
@@ -71,6 +72,15 @@ public class FragmentOrganizationCreate extends Fragment implements Organization
 
 
     }
+
+    @Override
+    public void notificationCreate(boolean s) {
+        if(s)
+            Toast.makeText(getActivity(),"Se a creado Correctamente", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(getActivity(),"No se pudo Crear Correctamente", Toast.LENGTH_LONG).show();
+    }
+
     @Override
     public void onClick(View v) {
         //Lineas para ocultar el teclado virtual (Hide keyboard)

@@ -35,6 +35,7 @@ public class OrganizationInteractorImpl implements OrganizationInteractor {
             mModel.setOrganization(o);
 
         }
+        listener.onCreate(!error);
         return error;
     }
 

@@ -7,6 +7,7 @@ public interface PeopleCreateFrgmentView {
     void setErrorName();
     void setErrorEmail();
     void setErrorTel();
+    void notificationCreate(boolean s);
     void actionCancel();
     void actionOk();
     void change(int i);

@@ -55,6 +55,7 @@ public class CommerceInteractorImpl implements CommerceInteractor {
                 come.setOrg(or);
             mModel.setCommerce(come);
         }
+        listener.onCreate(!error);
         return error;
     }
 

@@ -27,4 +27,5 @@ public interface CommerceCreateFragmentView {
     void actionCancel();
     void actionOk();
     void change(int i);
+    void notificationCreate(boolean s);
 }

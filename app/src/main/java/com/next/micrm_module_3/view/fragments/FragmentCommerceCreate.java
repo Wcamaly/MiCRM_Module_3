@@ -164,6 +164,14 @@ public class FragmentCommerceCreate extends Fragment implements CommerceCreateFr
     }
 
     @Override
+    public void notificationCreate(boolean s) {
+        if(s)
+            Toast.makeText(getActivity(),"Se a creado Correctamente", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(getActivity(),"No se pudo Crear Correctamente", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onClick(View v) {
         //Lineas para ocultar el teclado virtual (Hide keyboard)
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

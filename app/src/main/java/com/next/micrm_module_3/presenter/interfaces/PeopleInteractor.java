@@ -11,6 +11,7 @@ public interface PeopleInteractor {
         void onErrorTel();
         void onErrorEmail();
         void onDestroy();
+        void onCreate(boolean s);
     }
     boolean createPeople(String name,String email,String tel, final onPeople listener);
     People getChangePeople(int i);

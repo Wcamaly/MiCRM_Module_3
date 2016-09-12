@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,8 +46,6 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
     ListEntidadAdapter eAdapter;
     public FragmentListEntidades() {
     }
-
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
        View rootView = inflater.inflate(R.layout.fragment_listitemview,container,false);
@@ -149,7 +148,6 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
         ft.replace(R.id.fragment_section,mFragment).commit();
     }
 
-
     @Override
     public void onClick(View v) {
         FragmentTransaction ft=  getActivity().getSupportFragmentManager().beginTransaction();
@@ -175,6 +173,8 @@ public class FragmentListEntidades extends Fragment implements ListEntidades, Vi
     public boolean onQueryTextSubmit(String query) {
         return true;
     }
+
+
 
     @Override
     public boolean onQueryTextChange(String newText) {

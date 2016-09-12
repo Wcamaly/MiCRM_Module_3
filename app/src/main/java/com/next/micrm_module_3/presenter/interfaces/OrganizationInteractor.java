@@ -10,6 +10,7 @@ public interface OrganizationInteractor {
         void onErrorName();
         void onErrorTel();
         void onErrorAddres();
+        void onCreate(boolean s);
     }
     boolean createOrganization(String name,String tel,String dir, onOrganization listener);
     Organization getOrganiation(int i);

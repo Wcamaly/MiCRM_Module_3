@@ -44,5 +44,6 @@
     <string name="tel">Télefono</string>
     <string name="email">Email</string>
     <string name="welcome">Welcome to me App Walter Alejandro Camaly</string>
+    <string name="delete">Eliminar</string>
 
 </resources>

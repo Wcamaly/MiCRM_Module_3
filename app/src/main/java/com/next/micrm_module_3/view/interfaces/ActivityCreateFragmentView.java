@@ -17,5 +17,6 @@ public interface ActivityCreateFragmentView {
     void selectedAsign(List<?> list, int ty);
     void actionCancel();
     void actionOk();
+    void notificationCreate(boolean s);
     void change(int i);
 }
